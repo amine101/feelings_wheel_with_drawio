@@ -1,9 +1,3 @@
-
-
-![image](https://github.com/user-attachments/assets/8f7fbdef-6949-47cd-91a8-734044c5a769)
-
-
-
 # Feelings Wheel Generator with Draw.io
 
 This project generates an XML representation of a **Feelings Wheel** for various languages. The XML files are compatible with [Draw.io](https://drawio-app.com/), allowing you to visualize the complex emotional structure in a circular format with three levels: Major Emotions, Sub-Emotions, and Sub-Feelings.
@@ -16,8 +10,6 @@ This project generates an XML representation of a **Feelings Wheel** for various
 - [Usage](#usage)
 - [Configuration](#configuration)
 - [JSON Structure](#json-structure)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
@@ -62,38 +54,42 @@ The **Feelings Wheel** is a psychological tool to help identify, express, and ma
 
     - Import the XML file to visualize the Feelings Wheel.
     
+    
+    ![image](https://github.com/user-attachments/assets/8f7fbdef-6949-47cd-91a8-734044c5a769)
+
+
 ## Configuration
 
-You can adjust various parameters such as the circle's radius, colors, opacity, and font sizes in the CONFIG dictionary located at the top of the main script (main.py):
+You can adjust various parameters such as the circle's radius, colors, opacity, and font sizes in the *CONFIG* dictionary located at the top of the main script (main.py):
 
-- center_x, center_y: The center coordinates for the diagram.
+- **center_x, center_y**: The center coordinates for the diagram.
 
-- text_width, text_height: Dimensions for the text elements.
+- **text_width, text_height**: Dimensions for the text elements.
 
-- stroke_color, font_color: Defines the color of the strokes and fonts.
+- **stroke_color, font_color**: Defines the color of the strokes and fonts.
 
-- font_sizes: Controls the font sizes for different levels.
+- **font_sizes**: Controls the font sizes for different levels.
 
-- default_colors: Default colors for each level of emotions.
+- **default_colors**: Default colors for each level of emotions.
 
-## Levels and Radius:
+### Levels and Radius:
 
-- Level 1: Major Emotions (central circle)
+- **Level 1**: Major Emotions (central circle)
 radius: The radius of the circle.
 opacity: Opacity level (0-100).
 
-- Level 2: Sub-Emotions (middle annulus)
+- **Level 2**: Sub-Emotions (middle annulus)
 inner_radius, outer_radius: Define the inner and outer bounds of the annulus.
 radial_offset: Adjusts the radial position.
 opacity: Opacity level (0-100).
 
-- Level 3: Sub-Feelings (outer annulus)
+- **Level 3**: Sub-Feelings (outer annulus)
 inner_radius, outer_radius: Define the inner and outer bounds of the outer annulus.
 radial_offset: Adjusts the radial position.
 opacity: Opacity level (0-100).
 
 
-JSON Structure
+## JSON Structure
 The input JSON file (feelings_wheel.json) must follow a specific structure:
 
 
@@ -122,7 +118,8 @@ The input JSON file (feelings_wheel.json) must follow a specific structure:
 }
 ```
 ### Fields:
-languages: A dictionary containing languages as keys and corresponding emotional data as values.
-emotions: A dictionary of major emotions and their respective sub-emotions.
-sub_emotions: Sub-categories of each major emotion, followed by their sub-feelings.
-color: A list of three colors (hex format) for each level of emotions.
+- **languages**:
+ A dictionary containing languages as keys and corresponding emotional data as values.
+- **emotions**: A dictionary of major emotions and their respective sub-emotions.
+- **sub_emotions**: Sub-categories of each major emotion, followed by their sub-feelings.
+- **color**: A list of three colors (hex format) for each level of emotions.
