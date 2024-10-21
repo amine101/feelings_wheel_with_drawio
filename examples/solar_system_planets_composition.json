@@ -1,0 +1,127 @@
+{
+    "type": "generic_wheel",
+    "levels_config": [
+      {
+        "levels": 1,
+        "radius": 130,
+        "opacity": 100,
+        "font_size": 13,
+        "default_color": "#1f77b4"
+      },
+      {
+        "levels": 2,
+        "outer_radius": 250,
+        "opacity": 80,
+        "font_size": 15,
+        "default_color": "#ff7f0e"
+      },
+      {
+        "levels": 3,
+        "outer_radius_increment": 170,
+        "opacity": 80,
+        "font_size": 12,
+        "default_color": "#ff7f0e"
+      }
+    ],
+    "structures": [
+      {
+        "name": "Planetary Composition",
+        "nodes": [
+          {
+            "label": "Terrestrial Planets",
+            "percentage": 35,
+            "color": ["#1f77b4"],
+            "sub_nodes": [
+              {
+                "label": "Mercury",
+                "percentage": 25,
+                "color": ["#c7c7c7"],
+                "sub_nodes": [
+                  { "label": "Core (Metal)", "percentage": 55, "color": ["#8B4513"] },
+                  { "label": "Mantle (Silicate)", "percentage": 45, "color": ["#C0C0C0"] }
+                ]
+              },
+              {
+                "label": "Venus",
+                "percentage": 25,
+                "color": ["#FFDD44"],
+                "sub_nodes": [
+                  { "label": "Core (Metal)", "percentage": 25, "color": ["#8B4513"] },
+                  { "label": "Mantle (Silicate)", "percentage": 75, "color": ["#C0C0C0"] }
+                ]
+              },
+              {
+                "label": "Earth",
+                "percentage": 30,
+                "color": ["#00A1E2"],
+                "sub_nodes": [
+                  { "label": "Core (Metal)", "percentage": 33, "color": ["#8B4513"] },
+                  { "label": "Mantle (Silicate)", "percentage": 67, "color": ["#C0C0C0"] }
+                ]
+              },
+              {
+                "label": "Mars",
+                "percentage": 20,
+                "color": ["#FF4500"],
+                "sub_nodes": [
+                  { "label": "Core (Metal)", "percentage": 25, "color": ["#8B4513"] },
+                  { "label": "Mantle (Silicate)", "percentage": 75, "color": ["#C0C0C0"] }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "Gas Giants",
+            "percentage": 45,
+            "color": ["#ff7f0e"],
+            "sub_nodes": [
+              {
+                "label": "Jupiter",
+                "percentage": 70,
+                "color": ["#D3D3D3"],
+                "sub_nodes": [
+                  { "label": "Core (Rock/Ice)", "percentage": 5, "color": ["#8B4513"] },
+                  { "label": "Hydrogen and Helium", "percentage": 95, "color": ["#B0C4DE"] }
+                ]
+              },
+              {
+                "label": "Saturn",
+                "percentage": 30,
+                "color": ["#FFD700"],
+                "sub_nodes": [
+                  { "label": "Core (Rock/Ice)", "percentage": 10, "color": ["#8B4513"] },
+                  { "label": "Hydrogen and Helium", "percentage": 90, "color": ["#B0C4DE"] }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "Ice Giants",
+            "percentage": 20,
+            "color": ["#17becf"],
+            "sub_nodes": [
+              {
+                "label": "Uranus",
+                "percentage": 50,
+                "color": ["#40E0D0"],
+                "sub_nodes": [
+                  { "label": "Core (Rock/Ice)", "percentage": 20, "color": ["#8B4513"] },
+                  { "label": "Ices &amp;nbsp;&lt;br&gt; (Water, Ammonia, Methane)", "percentage": 80, "color": ["#ADD8E6"] }
+                ]
+              },
+              {
+                "label": "Neptune",
+                "percentage": 50,
+                "color": ["#0000FF"],
+                "sub_nodes": [
+                  { "label": "Core (Rock/Ice)", "percentage": 20, "color": ["#8B4513"] },
+                  { "label": "Ices &amp;nbsp;&lt;br&gt; (Water, Ammonia, Methane)", "percentage": 80, "color": ["#ADD8E6"] }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  

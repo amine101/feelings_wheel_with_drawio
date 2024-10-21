@@ -1,6 +1,5 @@
-# Feelings Wheel Generator with Draw.io
+# Sunburst Chart Generator with DrawIO
 
-This project generates an XML representation of a **Feelings Wheel** for various languages. The XML files are compatible with [Draw.io](https://drawio-app.com/), allowing you to visualize the complex emotional structure in a circular format with three levels: Major Emotions, Sub-Emotions, and Sub-Feelings.
 
 ## Table of Contents
 
@@ -13,29 +12,32 @@ This project generates an XML representation of a **Feelings Wheel** for various
 
 ## Overview
 
-The **Feelings Wheel** is a psychological tool to help identify, express, and manage emotions. This project takes a JSON input describing different emotional hierarchies across multiple languages and generates corresponding XML files for visualizing these emotions as a circular diagram in Draw.io.
+The Sunburst Chart Generator is a Python script designed to create sunburst charts (or wheel diagrams) in [Draw.io](https://drawio-app.com/)  (XML) format from hierarchical JSON data.
 
 ## Features
+ - **Generate Sunburst Charts:** Create multi-level, circular hierarchical charts based on JSON input.
 
-- Generates **three-level circular diagrams**:
-  1. Major Emotions
-  2. Sub-Emotions
-  3. Sub-Feelings
-- Supports **multiple languages**.
-- Exports **Draw.io compatible XML** for each language.
-- Customizable **colors and sizes** for each level.
-- Visualizes the hierarchical structure of emotions, aiding in better emotional understanding.
+ - **Customizable Levels:** Define custom configurations for each chart level, including radii, colors, opacities, and font sizes.
+
+ - **Color Adjustment:** Adjust colors automatically for different levels to enhance visual clarity.
+
+ - **Dynamic Text Labeling:** Add text labels to each chart segment with automatic positioning and rotation to maintain readability.
+
+ - **Flexible JSON Input:** Use a structured JSON file to define chart data and configurations.
+
+
 
 ## Installation
 
+
 1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/amine101/feelings_wheel_with_drawio.git
-   ```
+    ```bash
+    git clone https://github.com/amine101/sunburst_chart_with_drawio.git
+    ```
 2. Navigate to the project directory:
 
    ```bash
-   cd feelings_wheel_with_drawio
+   cd sunburst_chart_with_drawio
    ```
 
 ## Usage
@@ -44,9 +46,28 @@ The **Feelings Wheel** is a psychological tool to help identify, express, and ma
 2. Run the main script:
 
    ```bash
-    python generate_feelings_wheel.py.py
-   ```
-    This script will generate an XML file for each language described in the JSON file.
+   python generate.py 
+   --file INPUT_JSON_FILE 
+   [--extension EXTENSION] 
+   [--log-level LOG_LEVEL]
+   [--output OUTPUT_DIRECTORY]
+      ```
+
+    **Arguments**
+
+    - --file: (Required) Path to the input JSON file containing the chart data.
+    - --extension: (Optional) Output file extension (drawio or xml). Default is drawio.
+    - --log-level: (Optional) Logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL). Default is INFO.
+    - --output: (Optional) Output directory for the generated files. Default is ./output.
+
+    **Example**
+
+      ```bash
+        python generate.py --file data.json --extension drawio --log-level DEBUG --output ./diagrams
+      ```
+
+    This command reads data.json, generates the sunburst chart(s), and saves the output .drawio files in the ./diagrams directory with detailed debug logging enabled.
+
 
 3. Open the generated XML files in Draw.io:
 
@@ -60,66 +81,162 @@ The **Feelings Wheel** is a psychological tool to help identify, express, and ma
 
 ## Configuration
 
-You can adjust various parameters such as the circle's radius, colors, opacity, and font sizes in the *CONFIG* dictionary located at the top of the main script (main.py):
+Customize various aspects of each chart level through the levels_config section in your JSON file.
 
-- **center_x, center_y**: The center coordinates for the diagram.
+### Configuration Parameters
 
-- **text_width, text_height**: Dimensions for the text elements.
+- **levels:** Specifies the level(s) the configuration applies to. Accepts an integer, list, or dictionary with from and to keys.
 
-- **stroke_color, font_color**: Defines the color of the strokes and fonts.
+- **radius:** Defines the outer radius ( only for level 1).
 
-- **font_sizes**: Controls the font sizes for different levels.
+- **outer_radius:** Explicitely sets the outer radius of the level (for levels>=1).
 
-- **default_colors**: Default colors for each level of emotions.
+- **outer_radius_increment:** Incremental value added to the outer radius from the previous level (for levels>=1).
 
-### Levels and Radius:
+- **inner_radius:** Explicitely sets the inner radius of the level (for levels>=1).
 
-- **Level 1**: Major Emotions (central circle)
-radius: The radius of the circle.
-opacity: Opacity level (0-100).
+- **inner_radius_increment:** Incremental value added to the inner radius from the previous level's outer radius (for levels>=1).
 
-- **Level 2**: Sub-Emotions (middle annulus)
-inner_radius, outer_radius: Define the inner and outer bounds of the annulus.
-radial_offset: Adjusts the radial position.
-opacity: Opacity level (0-100).
+- **opacity:** Opacity percentage (0-100) for the chart segments at this level.
+font_size: Font size for text labels at this level.
 
-- **Level 3**: Sub-Feelings (outer annulus)
-inner_radius, outer_radius: Define the inner and outer bounds of the outer annulus.
-radial_offset: Adjusts the radial position.
-opacity: Opacity level (0-100).
+- **default_color:** Default fill color for segments at this level.
+
+
+
+**Example Level Configuration**
+```json
+"levels_config": [
+  {
+    "levels": 1,
+    "radius": 100,
+    "opacity": 100,
+    "font_size": 12,
+    "default_color": "#1f77b4"
+  },
+  {
+    "levels": {"from": 2, "to": 3},
+    "outer_radius_increment": 50,
+    "opacity": 80,
+    "font_size": 10,
+    "default_color": "#ff7f0e"
+  },
+  {
+    "levels": {"from": 4},
+    "outer_radius_increment": 40,
+    "opacity": 60,
+    "font_size": 8,
+    "default_color": "#2ca02c"
+  }
+]
+
+```
+
+### Colors
+
+Define colors for each node using the color key. If a node includes a color list, the script uses these colors for the corresponding levels. If not provided, it adjusts the base color automatically for different levels.
 
 
 ## JSON Structure
-The input JSON file (feelings_wheel.json) must follow a specific structure:
 
+Your input JSON file must adhere to a specific structure to ensure proper chart generation.
+
+### Top-Level Keys
+
+- **type:** *(Required)* Must be "generic_wheel" for this script.
+
+- **structures:** *(Required)* An array of chart structures to generate.
+
+### Structure of "structures"
+Each structure in the "structures" array should contain:
+
+- **name:** *(Required)* The chart's name.
+
+- **nodes:** *(Required)* An array of nodes representing the chart's hierarchical data.
+
+### Node Structure
+
+Each node within nodes can include:
+
+- **label:** *(Required)* Text label for the chart segment.
+
+- **percentage:** *(Optional)* Percentage of the segment relative to its parent (0-100). If omitted, remaining percentage is equally divided among unspecified nodes.
+
+  >**Important**: If specified, ensure that the total percentage of child nodes does not exceed 100% at any level.
+
+- **color:** *(Optional)* Array of colors for each level.
+
+- **sub_nodes:** *(Optional)* Array of child nodes, following the same structure.
 
 ```json
 {
-  "languages": {
-    "English": {
-      "emotions": {
-        "Joy": {
-          "sub_emotions": {
-            "Excitement": ["Thrilled", "Eager"],
-            "Optimism": ["Hopeful", "Enthusiastic"]
-          },
-          "color": ["#FFD700", "#FFA500", "#FF4500"]
-        },
-        "Sadness": {
-          "sub_emotions": {
-            "Grief": ["Sorrow", "Mourning"],
-            "Disappointment": ["Let Down", "Frustrated"]
-          },
-          "color": ["#4682B4", "#4169E1", "#0000FF"]
-        }
-      }
+  "type": "generic_wheel",
+  "levels_config": [
+    {
+      "levels": 1,
+      "radius": 100,
+      "opacity": 100,
+      "font_size": 12,
+      "default_color": "#1f77b4"
+    },
+    {
+      "levels": {"from": 2, "to": 3},
+      "outer_radius_increment": 100,
+      "opacity": 80,
+      "font_size": 10,
+      "default_color": "#ff7f0e"
     }
-  }
+  ],
+  "structures": [
+    {
+      "name": "Company Structure",
+      "nodes": [
+        {
+          "label": "Executive",
+          "percentage": 20,
+          "color": ["#1f77b4"],
+          "sub_nodes": [
+            {
+              "label": "CEO",
+              "percentage": 50,
+              "color" : ["1BA1E2"],
+              "sub_nodes": [
+                {"label": "Assistant", "percentage": 70, "color" : ["8FECFF"]}
+              ]
+            },
+            {
+              "label": "CFO",
+              "color" : ["1BA1E2"],
+              "percentage": 50
+            }
+          ]
+        },
+        {
+          "label": "Operations",
+          "percentage": 80,
+          "color": ["#ff7f0e"],
+          "sub_nodes": [
+            {
+              "label": "Manufacturing",
+              "percentage": 60
+            },
+            {
+              "label": "Logistics",
+              "percentage": 40
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
+
+
 ```
-### Fields:
-- **languages**:
- A dictionary containing languages as keys and corresponding emotional data as values.
-- **emotions**: A dictionary of major emotions and their respective sub-emotions.
-- **sub_emotions**: Sub-categories of each major emotion, followed by their sub-feelings.
-- **color**: A list of three colors (hex format) for each level of emotions.
+
+### Notes
+
+- **Percentage Validation:** Ensure that the total percentage of child nodes does not exceed 100% at any level.
+
+- **Unspecified Percentages:** 
+If percentage is omitted for some nodes, the script automatically divides the remaining percentage equally among them.
