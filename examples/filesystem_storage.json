@@ -1,33 +1,49 @@
 {
+
     "type": "generic_wheel",
     "levels_config": [
       {
           "levels": 1,
           "radius": 100,
-          "opacity": 100,
+          "shape_opacity": 100,
+          "text_opacity": 100,
           "font_size": 12,
-          "default_color": "#FF0000"
+          "shape_color": ["#FF0000"],
+          "text_rotation": "horizontal",
+          "text_placement": "centered"
       },
       {
           "levels": 2,
+          "inner_radius_increment" : 40,
           "outer_radius_increment": 100,
-          "opacity": 80,
+          "shape_opacity": 80,
+          "text_opacity": 80,
           "font_size": 10,
-          "default_color": "#00FF00"
+          "shape_color": ["#00FF00"],
+          "text_rotation": "perpendicular_upright",
+          "text_placement": "centered"
       },
       {
           "levels": 3,
+          "inner_radius_increment" : 40 ,
           "outer_radius_increment": 100,
-          "opacity": 80,
+          "shape_opacity": 80,
+          "text_opacity": 80,
           "font_size": 10,
-          "default_color": "#00FF00"
+          "shape_color": ["#00FF00"],
+          "text_rotation": "perpendicular_upright",
+          "text_placement": "centered"
       },
       {
-        "levels": {"from": 4},
-        "outer_radius_increment": 120,
-        "opacity": 70,
-        "font_size": 8,
-        "default_color": "#0000FF"
+          "levels": {"from": 4},
+          "inner_radius_increment" : 40 ,
+          "outer_radius_increment": 240,
+          "shape_opacity": 70,
+          "text_opacity": 70,
+          "font_size": 10,
+          "shape_color": ["#0000FF"],
+          "text_rotation": "radial",
+          "text_placement": "centered"
     }
     ],
     "structures": [
@@ -36,126 +52,126 @@
           "nodes": [
             {
               "label": "Root Directory",
-              "color": ["#4682B4"],
+              "shape_color": ["#4682B4"],
               "percentage": 100,
               "sub_nodes": [
                 {
                   "label": "System Files",
-                  "color": ["#FF4500"],
+                  "shape_color": ["#FF4500"],
                   "percentage": 30,
                   "sub_nodes": [
                     {
                       "label": "Operating System",
-                      "color": ["#FF6347"],
+                      "shape_color": ["#FF6347"],
                       "percentage": 80,
                       "sub_nodes": [
-                        { "label": "Kernel", "color": ["#FF7F50"], "percentage": 40 },
-                        { "label": "Drivers", "color": ["#FF7F50"], "percentage": 30 },
-                        { "label": "Configuration Files", "color": ["#FF7F50"], "percentage": 30 }
+                        { "label": "Kernel", "shape_color": ["#FF7F50"], "percentage": 40 },
+                        { "label": "Drivers", "shape_color": ["#FF7F50"], "percentage": 30 },
+                        { "label": "Configuration Files", "shape_color": ["#FF7F50"], "percentage": 30 }
                       ]
                     },
                     {
                       "label": "Boot Files",
-                      "color": ["#FF4500"],
+                      "shape_color": ["#FF4500"],
                       "percentage": 10,
                       "sub_nodes": [
-                        { "label": "Bootloader", "color": ["#FF6347"], "percentage": 50 },
-                        { "label": "Boot Configurations", "color": ["#FF6347"], "percentage": 50 }
+                        { "label": "Bootloader", "shape_color": ["#FF6347"], "percentage": 50 },
+                        { "label": "Boot Configurations", "shape_color": ["#FF6347"], "percentage": 50 }
                       ]
                     },
                     {
                       "label": "Logs",
-                      "color": ["#FF8C00"],
+                      "shape_color": ["#FF8C00"],
                       "percentage": 10,
                       "sub_nodes": [
-                        { "label": "System Logs", "color": ["#FFA500"], "percentage": 60 },
-                        { "label": "Kernel Logs", "color": ["#FFA500"], "percentage": 40 }
+                        { "label": "System Logs", "shape_color": ["#FFA500"], "percentage": 60 },
+                        { "label": "Kernel Logs", "shape_color": ["#FFA500"], "percentage": 40 }
                       ]
                     }
                   ]
                 },
                 {
                   "label": "User Data",
-                  "color": ["#32CD32"],
+                  "shape_color": ["#32CD32"],
                   "percentage": 40,
                   "sub_nodes": [
                     {
                       "label": "Documents",
-                      "color": ["#3CB371"],
+                      "shape_color": ["#3CB371"],
                       "percentage": 50,
                       "sub_nodes": [
-                        { "label": "Work", "color": ["#66CDAA"], "percentage": 40 },
-                        { "label": "Personal", "color": ["#66CDAA"], "percentage": 60 }
+                        { "label": "Work", "shape_color": ["#66CDAA"], "percentage": 40 },
+                        { "label": "Personal", "shape_color": ["#66CDAA"], "percentage": 60 }
                       ]
                     },
                     {
                       "label": "Media",
-                      "color": ["#98FB98"],
+                      "shape_color": ["#98FB98"],
                       "percentage": 40,
                       "sub_nodes": [
-                        { "label": "Photos", "color": ["#8FBC8F"], "percentage": 50 },
-                        { "label": "Videos", "color": ["#8FBC8F"], "percentage": 30 },
-                        { "label": "Music", "color": ["#8FBC8F"], "percentage": 20 }
+                        { "label": "Photos", "shape_color": ["#8FBC8F"], "percentage": 50 },
+                        { "label": "Videos", "shape_color": ["#8FBC8F"], "percentage": 30 },
+                        { "label": "Music", "shape_color": ["#8FBC8F"], "percentage": 20 }
                       ]
                     },
                     {
                       "label": "Downloads",
-                      "color": ["#228B22"],
+                      "shape_color": ["#228B22"],
                       "percentage": 10,
                       "sub_nodes": [
-                        { "label": "Software", "color": ["#2E8B57"], "percentage": 70 },
-                        { "label": "Documents", "color": ["#2E8B57"], "percentage": 30 }
+                        { "label": "Software", "shape_color": ["#2E8B57"], "percentage": 70 },
+                        { "label": "Documents", "shape_color": ["#2E8B57"], "percentage": 30 }
                       ]
                     }
                   ]
                 },
                 {
                   "label": "Application Data",
-                  "color": ["#DAA520"],
+                  "shape_color": ["#DAA520"],
                   "percentage": 20,
                   "sub_nodes": [
                     {
                       "label": "Installed Programs",
-                      "color": ["#FFD700"],
+                      "shape_color": ["#FFD700"],
                       "percentage": 60,
                       "sub_nodes": [
-                        { "label": "System Utilities", "color": ["#F0E68C"], "percentage": 40 },
-                        { "label": "Productivity Tools", "color": ["#F0E68C"], "percentage": 30 },
-                        { "label": "Development Tools", "color": ["#F0E68C"], "percentage": 30 }
+                        { "label": "System Utilities", "shape_color": ["#F0E68C"], "percentage": 40 },
+                        { "label": "Productivity Tools", "shape_color": ["#F0E68C"], "percentage": 30 },
+                        { "label": "Development Tools", "shape_color": ["#F0E68C"], "percentage": 30 }
                       ]
                     },
                     {
                       "label": "Program Settings",
-                      "color": ["#B8860B"],
+                      "shape_color": ["#B8860B"],
                       "percentage": 40,
                       "sub_nodes": [
-                        { "label": "System Preferences", "color": ["#D2691E"], "percentage": 50 },
-                        { "label": "User Preferences", "color": ["#D2691E"], "percentage": 50 }
+                        { "label": "System Preferences", "shape_color": ["#D2691E"], "percentage": 50},
+                        { "label": "User Preferences", "shape_color": ["#D2691E"], "percentage": 50 }
                       ]
                     }
                   ]
                 },
                 {
                   "label": "Backups",
-                  "color": ["#8B0000"],
+                  "shape_color": ["#8B0000"],
                   "percentage": 10,
                   "sub_nodes": [
                     {
                       "label": "System Backups",
-                      "color": ["#B22222"],
+                      "shape_color": ["#B22222"],
                       "percentage": 70,
                       "sub_nodes": [
-                        { "label": "Full Backups", "color": ["#CD5C5C"], "percentage": 60 },
-                        { "label": "Incremental Backups", "color": ["#CD5C5C"], "percentage": 40 }
+                        { "label": "Full Backups", "shape_color": ["#CD5C5C"], "percentage": 60 },
+                        { "label": "Incremental Backups", "shape_color": ["#CD5C5C"], "percentage": 40 }
                       ]
                     },
                     {
-                      "label": "User Data Backups",
-                      "color": ["#FF0000"],
+                      "label": "User Backups",
+                      "shape_color": ["#FF0000"],
                       "percentage": 30,
                       "sub_nodes": [
-                        { "label": "Documents Backup", "color": ["#DC143C"], "percentage": 50 },
-                        { "label": "Media Backup", "color": ["#DC143C"], "percentage": 50 }
+                        { "label": "Documents Backup", "shape_color": ["#DC143C"], "percentage": 50 },
+                        { "label": "Media Backup", "shape_color": ["#DC143C"], "percentage": 50 }
                       ]
                     }
                   ]

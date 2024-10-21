@@ -4,63 +4,64 @@
         {
             "levels": 1,
             "radius": 150,
-            "opacity": 100,
             "font_size": 12,
-            "default_color": "#FF0000"
+            "shape_opacity": 100,
+            "text_opacity": 100
         },
         {
-            "levels": 2,
-            "outer_radius_increment": 150,
-            "opacity": 80,
-            "font_size": 10,
-            "default_color": "#00FF00"
+            "levels": {"from": 2},
+            "outer_radius_increment": 120,
+            "shape_opacity": 100,
+            "text_opacity": 100,
+            "font_size": 10
         }
     ],
+
     "structures": [
       {
         "name": "Human Needs",
         "nodes": [
           {
             "label": "Physiological",
-            "color": ["#FF0000"],
+            "shape_color": ["#FF0000"],
             "sub_nodes": [
-              { "label": "Food", "color": ["#FF4D4D"] },
-              { "label": "Water", "color": ["#FF4D4D"] },
-              { "label": "Sleep", "color": ["#FF4D4D"] }
+              { "label": "Food", "shape_color": ["#FF4D4D"] },
+              { "label": "Water", "shape_color": ["#FF4D4D"] },
+              { "label": "Sleep", "shape_color": ["#FF4D4D"] }
             ]
           },
           {
             "label": "Safety",
-            "color": ["#FFA500"],
+            "shape_color": ["#FFA500"],
             "sub_nodes": [
-              { "label": "Security", "color": ["#FFCC80"] },
-              { "label": "Employment", "color": ["#FFCC80"] },
-              { "label": "Health", "color": ["#FFCC80"] }
+              { "label": "Security", "shape_color": ["#FFCC80"] },
+              { "label": "Employment", "shape_color": ["#FFCC80"] },
+              { "label": "Health", "shape_color": ["#FFCC80"] }
             ]
           },
           {
             "label": "Love and Belonging",
-            "color": ["#FFD700"],
+            "shape_color": ["#FFD700"],
             "sub_nodes": [
-              { "label": "Family", "color": ["#FFF8DC"] },
-              { "label": "Friendship", "color": ["#FFF8DC"] },
-              { "label": "Intimacy", "color": ["#FFF8DC"] }
+              { "label": "Family", "shape_color": ["#FFF8DC"] },
+              { "label": "Friendship", "shape_color": ["#FFF8DC"] },
+              { "label": "Intimacy", "shape_color": ["#FFF8DC"] }
             ]
           },
           {
             "label": "Esteem",
-            "color": ["#ADD8E6"],
+            "shape_color": ["#ADD8E6"],
             "sub_nodes": [
-              { "label": "Confidence", "color": ["#B0E0E6"] },
-              { "label": "Achievement", "color": ["#B0E0E6"] }
+              { "label": "Confidence", "shape_color": ["#B0E0E6"] },
+              { "label": "Achievement", "shape_color": ["#B0E0E6"] }
             ]
           },
           {
             "label": "Self-Actualization",
-            "color": ["#32CD32"],
+            "shape_color": ["#32CD32"],
             "sub_nodes": [
-              { "label": "Creativity", "color": ["#98FB98"] },
-              { "label": "Problem-solving", "color": ["#98FB98"] }
+              { "label": "Creativity", "shape_color": ["#98FB98"] },
+              { "label": "Problem-solving", "shape_color": ["#98FB98"] }
             ]
           }
         ]

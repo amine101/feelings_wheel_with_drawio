@@ -6,227 +6,227 @@
       "nodes": [
         {
           "label": "Joy",
-          "color": ["#FFD700"],
+          "shape_color": ["#FFD700"],
           "sub_nodes": [
             {
               "label": "Cheerful",
-              "color": ["#FFE6A1"],
+              "shape_color": ["#FFE6A1"],
               "sub_nodes": 
               [
                 { "label": "Amused", 
-                  "color": ["#FFFCD4"]
+                  "shape_color": ["#FFFCD4"]
                 } ,
-                {"label": "Delighted", "color": ["#FFFCD4"]},
-                {"label": "Jovial", "color": ["#FFFCD4"]},
-                {"label": "Content", "color": ["#FFFCD4"]},
-                {"label": "Satisfied", "color": ["#FFFCD4"]},
-                {"label": "Playful", "color": ["#FFFCD4"]},
-                {"label": "Happy", "color": ["#FFFCD4"]}
+                {"label": "Delighted", "shape_color": ["#FFFCD4"]},
+                {"label": "Jovial", "shape_color": ["#FFFCD4"]},
+                {"label": "Content", "shape_color": ["#FFFCD4"]},
+                {"label": "Satisfied", "shape_color": ["#FFFCD4"]},
+                {"label": "Playful", "shape_color": ["#FFFCD4"]},
+                {"label": "Happy", "shape_color": ["#FFFCD4"]}
               ]
             },
             {
               "label": "Optimistic",
-              "color": ["#FFD700"],
+              "shape_color": ["#FFD700"],
               "sub_nodes": [
-                {"label": "Hopeful", "color": ["#FFC107"]},
-                {"label": "Enthusiastic", "color": ["#FFC107"]},
-                {"label": "Eager", "color": ["#FFC107"]},
-                {"label": "Excited", "color": ["#FFC107"]},
-                {"label": "Confident", "color": ["#FFC107"]}
+                {"label": "Hopeful", "shape_color": ["#FFC107"]},
+                {"label": "Enthusiastic", "shape_color": ["#FFC107"]},
+                {"label": "Eager", "shape_color": ["#FFC107"]},
+                {"label": "Excited", "shape_color": ["#FFC107"]},
+                {"label": "Confident", "shape_color": ["#FFC107"]}
               ]
             },
             {
               "label": "Proud",
-              "color": ["#CFB527"],
+              "shape_color": ["#CFB527"],
               "sub_nodes": [
-                {"label": "Successful", "color": ["#CFCB51"]},
-                {"label": "Confident", "color": ["#CFCB51"]},
-                {"label": "Accomplished", "color": ["#CFCB51"]},
-                {"label": "Important", "color": ["#CFCB51"]},
-                {"label": "Valued", "color": ["#CFCB51"]}
+                {"label": "Successful", "shape_color": ["#CFCB51"]},
+                {"label": "Confident", "shape_color": ["#CFCB51"]},
+                {"label": "Accomplished", "shape_color": ["#CFCB51"]},
+                {"label": "Important", "shape_color": ["#CFCB51"]},
+                {"label": "Valued", "shape_color": ["#CFCB51"]}
               ]
             }
           ]
         },
         {
           "label": "Sadness",
-          "color": ["#1E90FF"],
+          "shape_color": ["#1E90FF"],
           "sub_nodes": [
             {
               "label": "Lonely",
-              "color": ["#64B5F6"],
+              "shape_color": ["#64B5F6"],
               "sub_nodes": [
-                {"label": "Isolated", "color": ["#42A5F5"]},
-                {"label": "Abandoned", "color": ["#42A5F5"]},
-                {"label": "Ignored", "color": ["#42A5F5"]},
-                {"label": "Unwanted", "color": ["#42A5F5"]},
-                {"label": "Rejected", "color": ["#42A5F5"]}
+                {"label": "Isolated", "shape_color": ["#42A5F5"]},
+                {"label": "Abandoned", "shape_color": ["#42A5F5"]},
+                {"label": "Ignored", "shape_color": ["#42A5F5"]},
+                {"label": "Unwanted", "shape_color": ["#42A5F5"]},
+                {"label": "Rejected", "shape_color": ["#42A5F5"]}
               ]
             },
             {
               "label": "Depressed",
-              "color": ["#1976D2"],
+              "shape_color": ["#1976D2"],
               "sub_nodes": [
-                {"label": "Inferior", "color": ["#1565C0"]},
-                {"label": "Empty", "color": ["#1565C0"]},
-                {"label": "Numb", "color": ["#1565C0"]},
-                {"label": "Hopeless", "color": ["#1565C0"]},
-                {"label": "Defeated", "color": ["#1565C0"]}
+                {"label": "Inferior", "shape_color": ["#1565C0"]},
+                {"label": "Empty", "shape_color": ["#1565C0"]},
+                {"label": "Numb", "shape_color": ["#1565C0"]},
+                {"label": "Hopeless", "shape_color": ["#1565C0"]},
+                {"label": "Defeated", "shape_color": ["#1565C0"]}
               ]
             },
             {
               "label": "Guilty",
-              "color": ["#0D47A1"],
+              "shape_color": ["#0D47A1"],
               "sub_nodes": [
-                {"label": "Ashamed", "color": ["#0D47A1"]},
-                {"label": "Remorseful", "color": ["#0D47A1"]},
-                {"label": "Regretful", "color": ["#0D47A1"]},
-                {"label": "Embarrassed", "color": ["#0D47A1"]},
-                {"label": "Blameworthy", "color": ["#0D47A1"]}
+                {"label": "Ashamed", "shape_color": ["#0D47A1"]},
+                {"label": "Remorseful", "shape_color": ["#0D47A1"]},
+                {"label": "Regretful", "shape_color": ["#0D47A1"]},
+                {"label": "Embarrassed", "shape_color": ["#0D47A1"]},
+                {"label": "Blameworthy", "shape_color": ["#0D47A1"]}
               ]
             }
           ]
         },
         {
           "label": "Anger",
-          "color": ["#FF4500"],
+          "shape_color": ["#FF4500"],
           "sub_nodes": [
             {
               "label": "Frustrated",
-              "color": ["#FF8A65"],
+              "shape_color": ["#FF8A65"],
               "sub_nodes": [
-                {"label": "Irritated", "color": ["#FF7043"]},
-                {"label": "Annoyed", "color": ["#FF7043"]},
-                {"label": "Aggravated", "color": ["#FF7043"]},
-                {"label": "Agitated", "color": ["#FF7043"]}
+                {"label": "Irritated", "shape_color": ["#FF7043"]},
+                {"label": "Annoyed", "shape_color": ["#FF7043"]},
+                {"label": "Aggravated", "shape_color": ["#FF7043"]},
+                {"label": "Agitated", "shape_color": ["#FF7043"]}
               ]
             },
             {
               "label": "Hostile",
-              "color": ["#FF5722"],
+              "shape_color": ["#FF5722"],
               "sub_nodes": [
-                {"label": "Bitter", "color": ["#E64A19"]},
-                {"label": "Aggressive", "color": ["#E64A19"]},
-                {"label": "Rageful", "color": ["#E64A19"]},
-                {"label": "Resentful", "color": ["#E64A19"]}
+                {"label": "Bitter", "shape_color": ["#E64A19"]},
+                {"label": "Aggressive", "shape_color": ["#E64A19"]},
+                {"label": "Rageful", "shape_color": ["#E64A19"]},
+                {"label": "Resentful", "shape_color": ["#E64A19"]}
               ]
             },
             {
               "label": "Hateful",
-              "color": ["#D84315"],
+              "shape_color": ["#D84315"],
               "sub_nodes": [
-                {"label": "Spiteful", "color": ["#BF360C"]},
-                {"label": "Vengeful", "color": ["#BF360C"]},
-                {"label": "Disgusted", "color": ["#BF360C"]},
-                {"label": "Contemptuous", "color": ["#BF360C"]}
+                {"label": "Spiteful", "shape_color": ["#BF360C"]},
+                {"label": "Vengeful", "shape_color": ["#BF360C"]},
+                {"label": "Disgusted", "shape_color": ["#BF360C"]},
+                {"label": "Contemptuous", "shape_color": ["#BF360C"]}
               ]
             }
           ]
         },
         {
           "label": "Fear",
-          "color": ["#8B0000"],
+          "shape_color": ["#8B0000"],
           "sub_nodes": [
             {
               "label": "Anxious",
-              "color": ["#E57373"],
+              "shape_color": ["#E57373"],
               "sub_nodes": [
-                {"label": "Worried", "color": ["#EF5350"]},
-                {"label": "Nervous", "color": ["#EF5350"]},
-                {"label": "Apprehensive", "color": ["#EF5350"]},
-                {"label": "Scared", "color": ["#EF5350"]}
+                {"label": "Worried", "shape_color": ["#EF5350"]},
+                {"label": "Nervous", "shape_color": ["#EF5350"]},
+                {"label": "Apprehensive", "shape_color": ["#EF5350"]},
+                {"label": "Scared", "shape_color": ["#EF5350"]}
               ]
             },
             {
               "label": "Insecure",
-              "color": ["#D32F2F"],
+              "shape_color": ["#D32F2F"],
               "sub_nodes": [
-                {"label": "Helpless", "color": ["#C62828"]},
-                {"label": "Inferior", "color": ["#C62828"]},
-                {"label": "Rejected", "color": ["#C62828"]},
-                {"label": "Inadequate", "color": ["#C62828"]}
+                {"label": "Helpless", "shape_color": ["#C62828"]},
+                {"label": "Inferior", "shape_color": ["#C62828"]},
+                {"label": "Rejected", "shape_color": ["#C62828"]},
+                {"label": "Inadequate", "shape_color": ["#C62828"]}
               ]
             },
             {
               "label": "Terrified",
-              "color": ["#B71C1C"],
+              "shape_color": ["#B71C1C"],
               "sub_nodes": [
-                {"label": "Panic-stricken", "color": ["#B71C1C"]},
-                {"label": "Horrified", "color": ["#B71C1C"]},
-                {"label": "Paralyzed", "color": ["#B71C1C"]},
-                {"label": "Frightened", "color": ["#B71C1C"]}
+                {"label": "Panic-stricken", "shape_color": ["#B71C1C"]},
+                {"label": "Horrified", "shape_color": ["#B71C1C"]},
+                {"label": "Paralyzed", "shape_color": ["#B71C1C"]},
+                {"label": "Frightened", "shape_color": ["#B71C1C"]}
               ]
             }
           ]
         },
         {
           "label": "Surprise",
-          "color": ["#FFA500"],
+          "shape_color": ["#FFA500"],
           "sub_nodes": [
             {
               "label": "Amazed",
-              "color": ["#FFCC80"],
+              "shape_color": ["#FFCC80"],
               "sub_nodes": [
-                {"label": "Astonished", "color": ["#FFB74D"]},
-                {"label": "Stunned", "color": ["#FFB74D"]},
-                {"label": "Shocked", "color": ["#FFB74D"]},
-                {"label": "Dumbfounded", "color": ["#FFB74D"]}
+                {"label": "Astonished", "shape_color": ["#FFB74D"]},
+                {"label": "Stunned", "shape_color": ["#FFB74D"]},
+                {"label": "Shocked", "shape_color": ["#FFB74D"]},
+                {"label": "Dumbfounded", "shape_color": ["#FFB74D"]}
               ]
             },
             {
               "label": "Confused",
-              "color": ["#FFA726"],
+              "shape_color": ["#FFA726"],
               "sub_nodes": [
-                {"label": "Disoriented", "color": ["#FB8C00"]},
-                {"label": "Perplexed", "color": ["#FB8C00"]},
-                {"label": "Baffled", "color": ["#FB8C00"]},
-                {"label": "Bewildered", "color": ["#FB8C00"]}
+                {"label": "Disoriented", "shape_color": ["#FB8C00"]},
+                {"label": "Perplexed", "shape_color": ["#FB8C00"]},
+                {"label": "Baffled", "shape_color": ["#FB8C00"]},
+                {"label": "Bewildered", "shape_color": ["#FB8C00"]}
               ]
             },
             {
               "label": "Startled",
-              "color": ["#F57C00"],
+              "shape_color": ["#F57C00"],
               "sub_nodes": [
-                {"label": "Alarmed", "color": ["#EF6C00"]},
-                {"label": "Taken aback", "color": ["#EF6C00"]},
-                {"label": "Aghast", "color": ["#EF6C00"]},
-                {"label": "Dismayed", "color": ["#EF6C00"]}
+                {"label": "Alarmed", "shape_color": ["#EF6C00"]},
+                {"label": "Taken aback", "shape_color": ["#EF6C00"]},
+                {"label": "Aghast", "shape_color": ["#EF6C00"]},
+                {"label": "Dismayed", "shape_color": ["#EF6C00"]}
               ]
             }
           ]
         },
         {
           "label": "Disgust",
-          "color": ["#32CD32"],
+          "shape_color": ["#32CD32"],
           "sub_nodes": [
             {
               "label": "Revolted",
-              "color": ["#81C784"],
+              "shape_color": ["#81C784"],
               "sub_nodes": [
-                {"label": "Repulsed", "color": ["#66BB6A"]},
-                {"label": "Sickened", "color": ["#66BB6A"]},
-                {"label": "Nauseated", "color": ["#66BB6A"]},
-                {"label": "Horrified", "color": ["#66BB6A"]}
+                {"label": "Repulsed", "shape_color": ["#66BB6A"]},
+                {"label": "Sickened", "shape_color": ["#66BB6A"]},
+                {"label": "Nauseated", "shape_color": ["#66BB6A"]},
+                {"label": "Horrified", "shape_color": ["#66BB6A"]}
               ]
             },
             {
               "label": "Disdainful",
-              "color": ["#4CAF50"],
+              "shape_color": ["#4CAF50"],
               "sub_nodes": [
-                {"label": "Contemptuous", "color": ["#43A047"]},
-                {"label": "Scornful", "color": ["#43A047"]},
-                {"label": "Disparaging", "color": ["#43A047"]},
-                {"label": "Dismissive", "color": ["#43A047"]}
+                {"label": "Contemptuous", "shape_color": ["#43A047"]},
+                {"label": "Scornful", "shape_color": ["#43A047"]},
+                {"label": "Disparaging", "shape_color": ["#43A047"]},
+                {"label": "Dismissive", "shape_color": ["#43A047"]}
               ]
             },
             {
               "label": "Offended",
-              "color": ["#388E3C"],
+              "shape_color": ["#388E3C"],
               "sub_nodes": [
-                {"label": "Indignant", "color": ["#2E7D32"]},
-                {"label": "Outraged", "color": ["#2E7D32"]},
-                {"label": "Appalled", "color": ["#2E7D32"]},
-                {"label": "Insulted", "color": ["#2E7D32"]}
+                {"label": "Indignant", "shape_color": ["#2E7D32"]},
+                {"label": "Outraged", "shape_color": ["#2E7D32"]},
+                {"label": "Appalled", "shape_color": ["#2E7D32"]},
+                {"label": "Insulted", "shape_color": ["#2E7D32"]}
               ]
             }
           ]
@@ -238,224 +238,224 @@
       "nodes": [
         {
           "label": "Freude",
-          "color": ["#FFD700"],
+          "shape_color": ["#FFD700"],
           "sub_nodes": [
             {
               "label": "Fröhlich",
-              "color": ["#FFE6A1"],
+              "shape_color": ["#FFE6A1"],
               "sub_nodes": [
-                { "label": "Amüsiert", "color": ["#FFFCD4"] },
-                { "label": "Erfreut", "color": ["#FFFCD4"] },
-                { "label": "Jovial", "color": ["#FFFCD4"] },
-                { "label": "Zufrieden", "color": ["#FFFCD4"] },
-                { "label": "Befriedigt", "color": ["#FFFCD4"] },
-                { "label": "Verspielt", "color": ["#FFFCD4"] },
-                { "label": "Glücklich", "color": ["#FFFCD4"] }
+                { "label": "Amüsiert", "shape_color": ["#FFFCD4"] },
+                { "label": "Erfreut", "shape_color": ["#FFFCD4"] },
+                { "label": "Jovial", "shape_color": ["#FFFCD4"] },
+                { "label": "Zufrieden", "shape_color": ["#FFFCD4"] },
+                { "label": "Befriedigt", "shape_color": ["#FFFCD4"] },
+                { "label": "Verspielt", "shape_color": ["#FFFCD4"] },
+                { "label": "Glücklich", "shape_color": ["#FFFCD4"] }
               ]
             },
             {
               "label": "Optimistisch",
-              "color": ["#FFD700"],
+              "shape_color": ["#FFD700"],
               "sub_nodes": [
-                { "label": "Hoffnungsvoll", "color": ["#FFC107"] },
-                { "label": "Begeistert", "color": ["#FFC107"] },
-                { "label": "Eifrig", "color": ["#FFC107"] },
-                { "label": "Aufgeregt", "color": ["#FFC107"] },
-                { "label": "Zuversichtlich", "color": ["#FFC107"] }
+                { "label": "Hoffnungsvoll", "shape_color": ["#FFC107"] },
+                { "label": "Begeistert", "shape_color": ["#FFC107"] },
+                { "label": "Eifrig", "shape_color": ["#FFC107"] },
+                { "label": "Aufgeregt", "shape_color": ["#FFC107"] },
+                { "label": "Zuversichtlich", "shape_color": ["#FFC107"] }
               ]
             },
             {
               "label": "Stolz",
-              "color": ["#CFB527"],
+              "shape_color": ["#CFB527"],
               "sub_nodes": [
-                { "label": "Erfolgreich", "color": ["#CFCB51"] },
-                { "label": "Selbstbewusst", "color": ["#CFCB51"] },
-                { "label": "Erreicht", "color": ["#CFCB51"] },
-                { "label": "Wichtig", "color": ["#CFCB51"] },
-                { "label": "Wertgeschätzt", "color": ["#CFCB51"] }
+                { "label": "Erfolgreich", "shape_color": ["#CFCB51"] },
+                { "label": "Selbstbewusst", "shape_color": ["#CFCB51"] },
+                { "label": "Erreicht", "shape_color": ["#CFCB51"] },
+                { "label": "Wichtig", "shape_color": ["#CFCB51"] },
+                { "label": "Wertgeschätzt", "shape_color": ["#CFCB51"] }
               ]
             }
           ]
         },
         {
           "label": "Traurigkeit",
-          "color": ["#1E90FF"],
+          "shape_color": ["#1E90FF"],
           "sub_nodes": [
             {
               "label": "Einsam",
-              "color": ["#64B5F6"],
+              "shape_color": ["#64B5F6"],
               "sub_nodes": [
-                { "label": "Isoliert", "color": ["#42A5F5"] },
-                { "label": "Verlassen", "color": ["#42A5F5"] },
-                { "label": "Ignoriert", "color": ["#42A5F5"] },
-                { "label": "Ungewollt", "color": ["#42A5F5"] },
-                { "label": "Abgelehnt", "color": ["#42A5F5"] }
+                { "label": "Isoliert", "shape_color": ["#42A5F5"] },
+                { "label": "Verlassen", "shape_color": ["#42A5F5"] },
+                { "label": "Ignoriert", "shape_color": ["#42A5F5"] },
+                { "label": "Ungewollt", "shape_color": ["#42A5F5"] },
+                { "label": "Abgelehnt", "shape_color": ["#42A5F5"] }
               ]
             },
             {
               "label": "Depressiv",
-              "color": ["#1976D2"],
+              "shape_color": ["#1976D2"],
               "sub_nodes": [
-                { "label": "Minderwertig", "color": ["#1565C0"] },
-                { "label": "Leer", "color": ["#1565C0"] },
-                { "label": "Gefühllos", "color": ["#1565C0"] },
-                { "label": "Hoffnungslos", "color": ["#1565C0"] },
-                { "label": "Besiegt", "color": ["#1565C0"] }
+                { "label": "Minderwertig", "shape_color": ["#1565C0"] },
+                { "label": "Leer", "shape_color": ["#1565C0"] },
+                { "label": "Gefühllos", "shape_color": ["#1565C0"] },
+                { "label": "Hoffnungslos", "shape_color": ["#1565C0"] },
+                { "label": "Besiegt", "shape_color": ["#1565C0"] }
               ]
             },
             {
               "label": "Schuldig",
-              "color": ["#0D47A1"],
+              "shape_color": ["#0D47A1"],
               "sub_nodes": [
-                { "label": "Beschämt", "color": ["#0D47A1"] },
-                { "label": "Reumütig", "color": ["#0D47A1"] },
-                { "label": "Bereuend", "color": ["#0D47A1"] },
-                { "label": "Verlegen", "color": ["#0D47A1"] },
-                { "label": "Schuldhaft", "color": ["#0D47A1"] }
+                { "label": "Beschämt", "shape_color": ["#0D47A1"] },
+                { "label": "Reumütig", "shape_color": ["#0D47A1"] },
+                { "label": "Bereuend", "shape_color": ["#0D47A1"] },
+                { "label": "Verlegen", "shape_color": ["#0D47A1"] },
+                { "label": "Schuldhaft", "shape_color": ["#0D47A1"] }
               ]
             }
           ]
         },
         {
           "label": "Wut",
-          "color": ["#FF4500"],
+          "shape_color": ["#FF4500"],
           "sub_nodes": [
             {
               "label": "Frustriert",
-              "color": ["#FF8A65"],
+              "shape_color": ["#FF8A65"],
               "sub_nodes": [
-                { "label": "Gereizt", "color": ["#FF7043"] },
-                { "label": "Genervt", "color": ["#FF7043"] },
-                { "label": "Verärgert", "color": ["#FF7043"] },
-                { "label": "Aufgebracht", "color": ["#FF7043"] }
+                { "label": "Gereizt", "shape_color": ["#FF7043"] },
+                { "label": "Genervt", "shape_color": ["#FF7043"] },
+                { "label": "Verärgert", "shape_color": ["#FF7043"] },
+                { "label": "Aufgebracht", "shape_color": ["#FF7043"] }
               ]
             },
             {
               "label": "Feindselig",
-              "color": ["#FF5722"],
+              "shape_color": ["#FF5722"],
               "sub_nodes": [
-                { "label": "Verbittert", "color": ["#E64A19"] },
-                { "label": "Aggressiv", "color": ["#E64A19"] },
-                { "label": "Wütend", "color": ["#E64A19"] },
-                { "label": "Verärgert", "color": ["#E64A19"] }
+                { "label": "Verbittert", "shape_color": ["#E64A19"] },
+                { "label": "Aggressiv", "shape_color": ["#E64A19"] },
+                { "label": "Wütend", "shape_color": ["#E64A19"] },
+                { "label": "Verärgert", "shape_color": ["#E64A19"] }
               ]
             },
             {
               "label": "Hassend",
-              "color": ["#D84315"],
+              "shape_color": ["#D84315"],
               "sub_nodes": [
-                { "label": "Rachsüchtig", "color": ["#BF360C"] },
-                { "label": "Verärgert", "color": ["#BF360C"] },
-                { "label": "Angewidert", "color": ["#BF360C"] },
-                { "label": "Verächtlich", "color": ["#BF360C"] }
+                { "label": "Rachsüchtig", "shape_color": ["#BF360C"] },
+                { "label": "Verärgert", "shape_color": ["#BF360C"] },
+                { "label": "Angewidert", "shape_color": ["#BF360C"] },
+                { "label": "Verächtlich", "shape_color": ["#BF360C"] }
               ]
             }
           ]
         },
         {
           "label": "Angst",
-          "color": ["#8B0000"],
+          "shape_color": ["#8B0000"],
           "sub_nodes": [
             {
               "label": "Ängstlich",
-              "color": ["#E57373"],
+              "shape_color": ["#E57373"],
               "sub_nodes": [
-                { "label": "Besorgt", "color": ["#EF5350"] },
-                { "label": "Nervös", "color": ["#EF5350"] },
-                { "label": "Besorgt", "color": ["#EF5350"] },
-                { "label": "Erschrocken", "color": ["#EF5350"] }
+                { "label": "Besorgt", "shape_color": ["#EF5350"] },
+                { "label": "Nervös", "shape_color": ["#EF5350"] },
+                { "label": "Besorgt", "shape_color": ["#EF5350"] },
+                { "label": "Erschrocken", "shape_color": ["#EF5350"] }
               ]
             },
             {
               "label": "Unsicher",
-              "color": ["#D32F2F"],
+              "shape_color": ["#D32F2F"],
               "sub_nodes": [
-                { "label": "Hilflos", "color": ["#C62828"] },
-                { "label": "Minderwertig", "color": ["#C62828"] },
-                { "label": "Abgelehnt", "color": ["#C62828"] },
-                { "label": "Unzulänglich", "color": ["#C62828"] }
+                { "label": "Hilflos", "shape_color": ["#C62828"] },
+                { "label": "Minderwertig", "shape_color": ["#C62828"] },
+                { "label": "Abgelehnt", "shape_color": ["#C62828"] },
+                { "label": "Unzulänglich", "shape_color": ["#C62828"] }
               ]
             },
             {
               "label": "Erschrocken",
-              "color": ["#B71C1C"],
+              "shape_color": ["#B71C1C"],
               "sub_nodes": [
-                { "label": "In Panik", "color": ["#B71C1C"] },
-                { "label": "Entsetzt", "color": ["#B71C1C"] },
-                { "label": "Paralysiert", "color": ["#B71C1C"] },
-                { "label": "Verängstigt", "color": ["#B71C1C"] }
+                { "label": "In Panik", "shape_color": ["#B71C1C"] },
+                { "label": "Entsetzt", "shape_color": ["#B71C1C"] },
+                { "label": "Paralysiert", "shape_color": ["#B71C1C"] },
+                { "label": "Verängstigt", "shape_color": ["#B71C1C"] }
               ]
             }
           ]
         },
         {
           "label": "Überraschung",
-          "color": ["#FFA500"],
+          "shape_color": ["#FFA500"],
           "sub_nodes": [
             {
               "label": "Erstaunt",
-              "color": ["#FFCC80"],
+              "shape_color": ["#FFCC80"],
               "sub_nodes": [
-                { "label": "Astoniert", "color": ["#FFB74D"] },
-                { "label": "Fassungslos", "color": ["#FFB74D"] },
-                { "label": "Schockiert", "color": ["#FFB74D"] },
-                { "label": "Sprachlos", "color": ["#FFB74D"] }
+                { "label": "Astoniert", "shape_color": ["#FFB74D"] },
+                { "label": "Fassungslos", "shape_color": ["#FFB74D"] },
+                { "label": "Schockiert", "shape_color": ["#FFB74D"] },
+                { "label": "Sprachlos", "shape_color": ["#FFB74D"] }
               ]
             },
             {
               "label": "Verwirrt",
-              "color": ["#FFA726"],
+              "shape_color": ["#FFA726"],
               "sub_nodes": [
-                { "label": "Desorientiert", "color": ["#FB8C00"] },
-                { "label": "Verblüfft", "color": ["#FB8C00"] },
-                { "label": "Ratlos", "color": ["#FB8C00"] },
-                { "label": "Befremdet", "color": ["#FB8C00"] }
+                { "label": "Desorientiert", "shape_color": ["#FB8C00"] },
+                { "label": "Verblüfft", "shape_color": ["#FB8C00"] },
+                { "label": "Ratlos", "shape_color": ["#FB8C00"] },
+                { "label": "Befremdet", "shape_color": ["#FB8C00"] }
               ]
             },
             {
               "label": "Erschrocken",
-              "color": ["#F57C00"],
+              "shape_color": ["#F57C00"],
               "sub_nodes": [
-                { "label": "Alarmiert", "color": ["#EF6C00"] },
-                { "label": "Überrascht", "color": ["#EF6C00"] },
-                { "label": "Entsetzt", "color": ["#EF6C00"] },
-                { "label": "Bestürzt", "color": ["#EF6C00"] }
+                { "label": "Alarmiert", "shape_color": ["#EF6C00"] },
+                { "label": "Überrascht", "shape_color": ["#EF6C00"] },
+                { "label": "Entsetzt", "shape_color": ["#EF6C00"] },
+                { "label": "Bestürzt", "shape_color": ["#EF6C00"] }
               ]
             }
           ]
         },
         {
           "label": "Ekel",
-          "color": ["#32CD32"],
+          "shape_color": ["#32CD32"],
           "sub_nodes": [
             {
               "label": "Angewidert",
-              "color": ["#81C784"],
+              "shape_color": ["#81C784"],
               "sub_nodes": [
-                { "label": "Abgestoßen", "color": ["#66BB6A"] },
-                { "label": "Übel", "color": ["#66BB6A"] },
-                { "label": "Ekelhaft", "color": ["#66BB6A"] },
-                { "label": "Entsetzt", "color": ["#66BB6A"] }
+                { "label": "Abgestoßen", "shape_color": ["#66BB6A"] },
+                { "label": "Übel", "shape_color": ["#66BB6A"] },
+                { "label": "Ekelhaft", "shape_color": ["#66BB6A"] },
+                { "label": "Entsetzt", "shape_color": ["#66BB6A"] }
               ]
             },
             {
               "label": "Verachtungsvoll",
-              "color": ["#4CAF50"],
+              "shape_color": ["#4CAF50"],
               "sub_nodes": [
-                { "label": "Verächtlich", "color": ["#43A047"] },
-                { "label": "Geringschätzig", "color": ["#43A047"] },
-                { "label": "Abfällig", "color": ["#43A047"] },
-                { "label": "Herablassend", "color": ["#43A047"] }
+                { "label": "Verächtlich", "shape_color": ["#43A047"] },
+                { "label": "Geringschätzig", "shape_color": ["#43A047"] },
+                { "label": "Abfällig", "shape_color": ["#43A047"] },
+                { "label": "Herablassend", "shape_color": ["#43A047"] }
               ]
             },
             {
               "label": "Beleidigt",
-              "color": ["#388E3C"],
+              "shape_color": ["#388E3C"],
               "sub_nodes": [
-                { "label": "Empört", "color": ["#2E7D32"] },
-                { "label": "Entrüstet", "color": ["#2E7D32"] },
-                { "label": "Entsetzt", "color": ["#2E7D32"] },
-                { "label": "Beleidigt", "color": ["#2E7D32"] }
+                { "label": "Empört", "shape_color": ["#2E7D32"] },
+                { "label": "Entrüstet", "shape_color": ["#2E7D32"] },
+                { "label": "Entsetzt", "shape_color": ["#2E7D32"] },
+                { "label": "Beleidigt", "shape_color": ["#2E7D32"] }
               ]
             }
           ]
@@ -467,224 +467,224 @@
       "nodes": [
         {
           "label": "فرح",
-          "color": ["#FFD700"],
+          "shape_color": ["#FFD700"],
           "sub_nodes": [
             {
               "label": "مرح",
-              "color": ["#FFE6A1"],
+              "shape_color": ["#FFE6A1"],
               "sub_nodes": [
-                { "label": "مُسَلٍّ", "color": ["#FFFCD4"] },
-                { "label": "مُبتهج", "color": ["#FFFCD4"] },
-                { "label": "بشوش", "color": ["#FFFCD4"] },
-                { "label": "راضٍ", "color": ["#FFFCD4"] },
-                { "label": "مُكتفٍ", "color": ["#FFFCD4"] },
-                { "label": "مُتَلاعِب", "color": ["#FFFCD4"] },
-                { "label": "سعيد", "color": ["#FFFCD4"] }
+                { "label": "مُسَلٍّ", "shape_color": ["#FFFCD4"] },
+                { "label": "مُبتهج", "shape_color": ["#FFFCD4"] },
+                { "label": "بشوش", "shape_color": ["#FFFCD4"] },
+                { "label": "راضٍ", "shape_color": ["#FFFCD4"] },
+                { "label": "مُكتفٍ", "shape_color": ["#FFFCD4"] },
+                { "label": "مُتَلاعِب", "shape_color": ["#FFFCD4"] },
+                { "label": "سعيد", "shape_color": ["#FFFCD4"] }
               ]
             },
             {
               "label": "مُتفائل",
-              "color": ["#FFD700"],
+              "shape_color": ["#FFD700"],
               "sub_nodes": [
-                { "label": "مُتأمل", "color": ["#FFC107"] },
-                { "label": "مُتحمس", "color": ["#FFC107"] },
-                { "label": "مُتحفز", "color": ["#FFC107"] },
-                { "label": "مُثار", "color": ["#FFC107"] },
-                { "label": "واثق", "color": ["#FFC107"] }
+                { "label": "مُتأمل", "shape_color": ["#FFC107"] },
+                { "label": "مُتحمس", "shape_color": ["#FFC107"] },
+                { "label": "مُتحفز", "shape_color": ["#FFC107"] },
+                { "label": "مُثار", "shape_color": ["#FFC107"] },
+                { "label": "واثق", "shape_color": ["#FFC107"] }
               ]
             },
             {
               "label": "فخور",
-              "color": ["#CFB527"],
+              "shape_color": ["#CFB527"],
               "sub_nodes": [
-                { "label": "ناجح", "color": ["#CFCB51"] },
-                { "label": "واثق", "color": ["#CFCB51"] },
-                { "label": "مُنجز", "color": ["#CFCB51"] },
-                { "label": "مُهم", "color": ["#CFCB51"] },
-                { "label": "ذو قيمة", "color": ["#CFCB51"] }
+                { "label": "ناجح", "shape_color": ["#CFCB51"] },
+                { "label": "واثق", "shape_color": ["#CFCB51"] },
+                { "label": "مُنجز", "shape_color": ["#CFCB51"] },
+                { "label": "مُهم", "shape_color": ["#CFCB51"] },
+                { "label": "ذو قيمة", "shape_color": ["#CFCB51"] }
               ]
             }
           ]
         },
         {
           "label": "حزن",
-          "color": ["#1E90FF"],
+          "shape_color": ["#1E90FF"],
           "sub_nodes": [
             {
               "label": "وحيد",
-              "color": ["#64B5F6"],
+              "shape_color": ["#64B5F6"],
               "sub_nodes": [
-                { "label": "معزول", "color": ["#42A5F5"] },
-                { "label": "مُهمل", "color": ["#42A5F5"] },
-                { "label": "مُتجاهل", "color": ["#42A5F5"] },
-                { "label": "غير مرغوب فيه", "color": ["#42A5F5"] },
-                { "label": "مرفوض", "color": ["#42A5F5"] }
+                { "label": "معزول", "shape_color": ["#42A5F5"] },
+                { "label": "مُهمل", "shape_color": ["#42A5F5"] },
+                { "label": "مُتجاهل", "shape_color": ["#42A5F5"] },
+                { "label": "غير مرغوب فيه", "shape_color": ["#42A5F5"] },
+                { "label": "مرفوض", "shape_color": ["#42A5F5"] }
               ]
             },
             {
               "label": "مكتئب",
-              "color": ["#1976D2"],
+              "shape_color": ["#1976D2"],
               "sub_nodes": [
-                { "label": "أقل شأنا", "color": ["#1565C0"] },
-                { "label": "فارغ", "color": ["#1565C0"] },
-                { "label": "مُتَبلد", "color": ["#1565C0"] },
-                { "label": "ميؤوس منه", "color": ["#1565C0"] },
-                { "label": "مغلوب", "color": ["#1565C0"] }
+                { "label": "أقل شأنا", "shape_color": ["#1565C0"] },
+                { "label": "فارغ", "shape_color": ["#1565C0"] },
+                { "label": "مُتَبلد", "shape_color": ["#1565C0"] },
+                { "label": "ميؤوس منه", "shape_color": ["#1565C0"] },
+                { "label": "مغلوب", "shape_color": ["#1565C0"] }
               ]
             },
             {
               "label": "مذنب",
-              "color": ["#0D47A1"],
+              "shape_color": ["#0D47A1"],
               "sub_nodes": [
-                { "label": "مُخجل", "color": ["#0D47A1"] },
-                { "label": "نادم", "color": ["#0D47A1"] },
-                { "label": "مُتأسف", "color": ["#0D47A1"] },
-                { "label": "مُحرج", "color": ["#0D47A1"] },
-                { "label": "مذنب", "color": ["#0D47A1"] }
+                { "label": "مُخجل", "shape_color": ["#0D47A1"] },
+                { "label": "نادم", "shape_color": ["#0D47A1"] },
+                { "label": "مُتأسف", "shape_color": ["#0D47A1"] },
+                { "label": "مُحرج", "shape_color": ["#0D47A1"] },
+                { "label": "مذنب", "shape_color": ["#0D47A1"] }
               ]
             }
           ]
         },
         {
           "label": "غضب",
-          "color": ["#FF4500"],
+          "shape_color": ["#FF4500"],
           "sub_nodes": [
             {
               "label": "مُحبَط",
-              "color": ["#FF8A65"],
+              "shape_color": ["#FF8A65"],
               "sub_nodes": [
-                { "label": "مُنزعج", "color": ["#FF7043"] },
-                { "label": "مُستاء", "color": ["#FF7043"] },
-                { "label": "مُغتاظ", "color": ["#FF7043"] },
-                { "label": "مُضطرب", "color": ["#FF7043"] }
+                { "label": "مُنزعج", "shape_color": ["#FF7043"] },
+                { "label": "مُستاء", "shape_color": ["#FF7043"] },
+                { "label": "مُغتاظ", "shape_color": ["#FF7043"] },
+                { "label": "مُضطرب", "shape_color": ["#FF7043"] }
               ]
             },
             {
               "label": "عدائي",
-              "color": ["#FF5722"],
+              "shape_color": ["#FF5722"],
               "sub_nodes": [
-                { "label": "مُر", "color": ["#E64A19"] },
-                { "label": "عنيف", "color": ["#E64A19"] },
-                { "label": "غاضب جدا", "color": ["#E64A19"] },
-                { "label": "حاقد", "color": ["#E64A19"] }
+                { "label": "مُر", "shape_color": ["#E64A19"] },
+                { "label": "عنيف", "shape_color": ["#E64A19"] },
+                { "label": "غاضب جدا", "shape_color": ["#E64A19"] },
+                { "label": "حاقد", "shape_color": ["#E64A19"] }
               ]
             },
             {
               "label": "كراهية",
-              "color": ["#D84315"],
+              "shape_color": ["#D84315"],
               "sub_nodes": [
-                { "label": "خبيث", "color": ["#BF360C"] },
-                { "label": "انتقامي", "color": ["#BF360C"] },
-                { "label": "مشمئز", "color": ["#BF360C"] },
-                { "label": "ازدرائي", "color": ["#BF360C"] }
+                { "label": "خبيث", "shape_color": ["#BF360C"] },
+                { "label": "انتقامي", "shape_color": ["#BF360C"] },
+                { "label": "مشمئز", "shape_color": ["#BF360C"] },
+                { "label": "ازدرائي", "shape_color": ["#BF360C"] }
               ]
             }
           ]
         },
         {
           "label": "خوف",
-          "color": ["#8B0000"],
+          "shape_color": ["#8B0000"],
           "sub_nodes": [
             {
               "label": "قلق",
-              "color": ["#E57373"],
+              "shape_color": ["#E57373"],
               "sub_nodes": [
-                { "label": "مُهتم", "color": ["#EF5350"] },
-                { "label": "عصبي", "color": ["#EF5350"] },
-                { "label": "مُرتاب", "color": ["#EF5350"] },
-                { "label": "خائف", "color": ["#EF5350"] }
+                { "label": "مُهتم", "shape_color": ["#EF5350"] },
+                { "label": "عصبي", "shape_color": ["#EF5350"] },
+                { "label": "مُرتاب", "shape_color": ["#EF5350"] },
+                { "label": "خائف", "shape_color": ["#EF5350"] }
               ]
             },
             {
               "label": "غير آمن",
-              "color": ["#D32F2F"],
+              "shape_color": ["#D32F2F"],
               "sub_nodes": [
-                { "label": "عاجز", "color": ["#C62828"] },
-                { "label": "أقل شأنا", "color": ["#C62828"] },
-                { "label": "مرفوض", "color": ["#C62828"] },
-                { "label": "غير كفؤ", "color": ["#C62828"] }
+                { "label": "عاجز", "shape_color": ["#C62828"] },
+                { "label": "أقل شأنا", "shape_color": ["#C62828"] },
+                { "label": "مرفوض", "shape_color": ["#C62828"] },
+                { "label": "غير كفؤ", "shape_color": ["#C62828"] }
               ]
             },
             {
               "label": "مرعوب",
-              "color": ["#B71C1C"],
+              "shape_color": ["#B71C1C"],
               "sub_nodes": [
-                { "label": "مُذعور", "color": ["#B71C1C"] },
-                { "label": "مُروع", "color": ["#B71C1C"] },
-                { "label": "مشلول", "color": ["#B71C1C"] },
-                { "label": "مرعوب", "color": ["#B71C1C"] }
+                { "label": "مُذعور", "shape_color": ["#B71C1C"] },
+                { "label": "مُروع", "shape_color": ["#B71C1C"] },
+                { "label": "مشلول", "shape_color": ["#B71C1C"] },
+                { "label": "مرعوب", "shape_color": ["#B71C1C"] }
               ]
             }
           ]
         },
         {
           "label": "دهشة",
-          "color": ["#FFA500"],
+          "shape_color": ["#FFA500"],
           "sub_nodes": [
             {
               "label": "مندهش",
-              "color": ["#FFCC80"],
+              "shape_color": ["#FFCC80"],
               "sub_nodes": [
-                { "label": "مُدهش", "color": ["#FFB74D"] },
-                { "label": "مُبَهر", "color": ["#FFB74D"] },
-                { "label": "مصدوم", "color": ["#FFB74D"] },
-                { "label": "مُتفاجئ", "color": ["#FFB74D"] }
+                { "label": "مُدهش", "shape_color": ["#FFB74D"] },
+                { "label": "مُبَهر", "shape_color": ["#FFB74D"] },
+                { "label": "مصدوم", "shape_color": ["#FFB74D"] },
+                { "label": "مُتفاجئ", "shape_color": ["#FFB74D"] }
               ]
             },
             {
               "label": "مرتبك",
-              "color": ["#FFA726"],
+              "shape_color": ["#FFA726"],
               "sub_nodes": [
-                { "label": "مشوش", "color": ["#FB8C00"] },
-                { "label": "مُحتار", "color": ["#FB8C00"] },
-                { "label": "مضطرب", "color": ["#FB8C00"] },
-                { "label": "مذهول", "color": ["#FB8C00"] }
+                { "label": "مشوش", "shape_color": ["#FB8C00"] },
+                { "label": "مُحتار", "shape_color": ["#FB8C00"] },
+                { "label": "مضطرب", "shape_color": ["#FB8C00"] },
+                { "label": "مذهول", "shape_color": ["#FB8C00"] }
               ]
             },
             {
               "label": "مُفزَع",
-              "color": ["#F57C00"],
+              "shape_color": ["#F57C00"],
               "sub_nodes": [
-                { "label": "مُذعور", "color": ["#EF6C00"] },
-                { "label": "مُتفاجئ", "color": ["#EF6C00"] },
-                { "label": "مروع", "color": ["#EF6C00"] },
-                { "label": "مُستنكر", "color": ["#EF6C00"] }
+                { "label": "مُذعور", "shape_color": ["#EF6C00"] },
+                { "label": "مُتفاجئ", "shape_color": ["#EF6C00"] },
+                { "label": "مروع", "shape_color": ["#EF6C00"] },
+                { "label": "مُستنكر", "shape_color": ["#EF6C00"] }
               ]
             }
           ]
         },
         {
           "label": "اشمئزاز",
-          "color": ["#32CD32"],
+          "shape_color": ["#32CD32"],
           "sub_nodes": [
             {
               "label": "مُنفعل",
-              "color": ["#81C784"],
+              "shape_color": ["#81C784"],
               "sub_nodes": [
-                { "label": "مُنفَّر", "color": ["#66BB6A"] },
-                { "label": "مقزز", "color": ["#66BB6A"] },
-                { "label": "مُغثي", "color": ["#66BB6A"] },
-                { "label": "مُروع", "color": ["#66BB6A"] }
+                { "label": "مُنفَّر", "shape_color": ["#66BB6A"] },
+                { "label": "مقزز", "shape_color": ["#66BB6A"] },
+                { "label": "مُغثي", "shape_color": ["#66BB6A"] },
+                { "label": "مُروع", "shape_color": ["#66BB6A"] }
               ]
             },
             {
               "label": "ازدرائي",
-              "color": ["#4CAF50"],
+              "shape_color": ["#4CAF50"],
               "sub_nodes": [
-                { "label": "مُحتقر", "color": ["#43A047"] },
-                { "label": "ساخر", "color": ["#43A047"] },
-                { "label": "مُزدرٍ", "color": ["#43A047"] },
-                { "label": "مُتجاهل", "color": ["#43A047"] }
+                { "label": "مُحتقر", "shape_color": ["#43A047"] },
+                { "label": "ساخر", "shape_color": ["#43A047"] },
+                { "label": "مُزدرٍ", "shape_color": ["#43A047"] },
+                { "label": "مُتجاهل", "shape_color": ["#43A047"] }
               ]
             },
             {
               "label": "مُهان",
-              "color": ["#388E3C"],
+              "shape_color": ["#388E3C"],
               "sub_nodes": [
-                { "label": "ساخط", "color": ["#2E7D32"] },
-                { "label": "غاضب", "color": ["#2E7D32"] },
-                { "label": "مُروع", "color": ["#2E7D32"] },
-                { "label": "مُحتقر", "color": ["#2E7D32"] }
+                { "label": "ساخط", "shape_color": ["#2E7D32"] },
+                { "label": "غاضب", "shape_color": ["#2E7D32"] },
+                { "label": "مُروع", "shape_color": ["#2E7D32"] },
+                { "label": "مُحتقر", "shape_color": ["#2E7D32"] }
               ]
             }
           ]
@@ -696,224 +696,224 @@
       "nodes": [
         {
           "label": "Joie",
-          "color": ["#FFD700"],
+          "shape_color": ["#FFD700"],
           "sub_nodes": [
             {
               "label": "Enjoué",
-              "color": ["#FFE6A1"],
+              "shape_color": ["#FFE6A1"],
               "sub_nodes": [
-                { "label": "Amusé", "color": ["#FFFCD4"] },
-                { "label": "Ravi", "color": ["#FFFCD4"] },
-                { "label": "Jovial", "color": ["#FFFCD4"] },
-                { "label": "Content", "color": ["#FFFCD4"] },
-                { "label": "Satisfait", "color": ["#FFFCD4"] },
-                { "label": "Joueur", "color": ["#FFFCD4"] },
-                { "label": "Heureux", "color": ["#FFFCD4"] }
+                { "label": "Amusé", "shape_color": ["#FFFCD4"] },
+                { "label": "Ravi", "shape_color": ["#FFFCD4"] },
+                { "label": "Jovial", "shape_color": ["#FFFCD4"] },
+                { "label": "Content", "shape_color": ["#FFFCD4"] },
+                { "label": "Satisfait", "shape_color": ["#FFFCD4"] },
+                { "label": "Joueur", "shape_color": ["#FFFCD4"] },
+                { "label": "Heureux", "shape_color": ["#FFFCD4"] }
               ]
             },
             {
               "label": "Optimiste",
-              "color": ["#FFD700"],
+              "shape_color": ["#FFD700"],
               "sub_nodes": [
-                { "label": "Plein d'espoir", "color": ["#FFC107"] },
-                { "label": "Enthousiaste", "color": ["#FFC107"] },
-                { "label": "Impatient", "color": ["#FFC107"] },
-                { "label": "Excité", "color": ["#FFC107"] },
-                { "label": "Confiant", "color": ["#FFC107"] }
+                { "label": "Plein d'espoir", "shape_color": ["#FFC107"] },
+                { "label": "Enthousiaste", "shape_color": ["#FFC107"] },
+                { "label": "Impatient", "shape_color": ["#FFC107"] },
+                { "label": "Excité", "shape_color": ["#FFC107"] },
+                { "label": "Confiant", "shape_color": ["#FFC107"] }
               ]
             },
             {
               "label": "Fier",
-              "color": ["#CFB527"],
+              "shape_color": ["#CFB527"],
               "sub_nodes": [
-                { "label": "Réussi", "color": ["#CFCB51"] },
-                { "label": "Confiant", "color": ["#CFCB51"] },
-                { "label": "Accompli", "color": ["#CFCB51"] },
-                { "label": "Important", "color": ["#CFCB51"] },
-                { "label": "Valorisé", "color": ["#CFCB51"] }
+                { "label": "Réussi", "shape_color": ["#CFCB51"] },
+                { "label": "Confiant", "shape_color": ["#CFCB51"] },
+                { "label": "Accompli", "shape_color": ["#CFCB51"] },
+                { "label": "Important", "shape_color": ["#CFCB51"] },
+                { "label": "Valorisé", "shape_color": ["#CFCB51"] }
               ]
             }
           ]
         },
         {
           "label": "Tristesse",
-          "color": ["#1E90FF"],
+          "shape_color": ["#1E90FF"],
           "sub_nodes": [
             {
               "label": "Seul",
-              "color": ["#64B5F6"],
+              "shape_color": ["#64B5F6"],
               "sub_nodes": [
-                { "label": "Isolé", "color": ["#42A5F5"] },
-                { "label": "Abandonné", "color": ["#42A5F5"] },
-                { "label": "Ignoré", "color": ["#42A5F5"] },
-                { "label": "Non désiré", "color": ["#42A5F5"] },
-                { "label": "Rejeté", "color": ["#42A5F5"] }
+                { "label": "Isolé", "shape_color": ["#42A5F5"] },
+                { "label": "Abandonné", "shape_color": ["#42A5F5"] },
+                { "label": "Ignoré", "shape_color": ["#42A5F5"] },
+                { "label": "Non désiré", "shape_color": ["#42A5F5"] },
+                { "label": "Rejeté", "shape_color": ["#42A5F5"] }
               ]
             },
             {
               "label": "Déprimé",
-              "color": ["#1976D2"],
+              "shape_color": ["#1976D2"],
               "sub_nodes": [
-                { "label": "Inférieur", "color": ["#1565C0"] },
-                { "label": "Vide", "color": ["#1565C0"] },
-                { "label": "Engourdi", "color": ["#1565C0"] },
-                { "label": "Sans espoir", "color": ["#1565C0"] },
-                { "label": "Défait", "color": ["#1565C0"] }
+                { "label": "Inférieur", "shape_color": ["#1565C0"] },
+                { "label": "Vide", "shape_color": ["#1565C0"] },
+                { "label": "Engourdi", "shape_color": ["#1565C0"] },
+                { "label": "Sans espoir", "shape_color": ["#1565C0"] },
+                { "label": "Défait", "shape_color": ["#1565C0"] }
               ]
             },
             {
               "label": "Coupable",
-              "color": ["#0D47A1"],
+              "shape_color": ["#0D47A1"],
               "sub_nodes": [
-                { "label": "Honteux", "color": ["#0D47A1"] },
-                { "label": "Remords", "color": ["#0D47A1"] },
-                { "label": "Plein de regrets", "color": ["#0D47A1"] },
-                { "label": "Embarrassé", "color": ["#0D47A1"] },
-                { "label": "Coupable", "color": ["#0D47A1"] }
+                { "label": "Honteux", "shape_color": ["#0D47A1"] },
+                { "label": "Remords", "shape_color": ["#0D47A1"] },
+                { "label": "Plein de regrets", "shape_color": ["#0D47A1"] },
+                { "label": "Embarrassé", "shape_color": ["#0D47A1"] },
+                { "label": "Coupable", "shape_color": ["#0D47A1"] }
               ]
             }
           ]
         },
         {
           "label": "Colère",
-          "color": ["#FF4500"],
+          "shape_color": ["#FF4500"],
           "sub_nodes": [
             {
               "label": "Frustré",
-              "color": ["#FF8A65"],
+              "shape_color": ["#FF8A65"],
               "sub_nodes": [
-                { "label": "Irrité", "color": ["#FF7043"] },
-                { "label": "Agacé", "color": ["#FF7043"] },
-                { "label": "Exaspéré", "color": ["#FF7043"] },
-                { "label": "Agité", "color": ["#FF7043"] }
+                { "label": "Irrité", "shape_color": ["#FF7043"] },
+                { "label": "Agacé", "shape_color": ["#FF7043"] },
+                { "label": "Exaspéré", "shape_color": ["#FF7043"] },
+                { "label": "Agité", "shape_color": ["#FF7043"] }
               ]
             },
             {
               "label": "Hostile",
-              "color": ["#FF5722"],
+              "shape_color": ["#FF5722"],
               "sub_nodes": [
-                { "label": "Amer", "color": ["#E64A19"] },
-                { "label": "Agressif", "color": ["#E64A19"] },
-                { "label": "Rageux", "color": ["#E64A19"] },
-                { "label": "Ressentiment", "color": ["#E64A19"] }
+                { "label": "Amer", "shape_color": ["#E64A19"] },
+                { "label": "Agressif", "shape_color": ["#E64A19"] },
+                { "label": "Rageux", "shape_color": ["#E64A19"] },
+                { "label": "Ressentiment", "shape_color": ["#E64A19"] }
               ]
             },
             {
               "label": "Haïneux",
-              "color": ["#D84315"],
+              "shape_color": ["#D84315"],
               "sub_nodes": [
-                { "label": "Rancunier", "color": ["#BF360C"] },
-                { "label": "Vindicatif", "color": ["#BF360C"] },
-                { "label": "Dégoûté", "color": ["#BF360C"] },
-                { "label": "Méprisant", "color": ["#BF360C"] }
+                { "label": "Rancunier", "shape_color": ["#BF360C"] },
+                { "label": "Vindicatif", "shape_color": ["#BF360C"] },
+                { "label": "Dégoûté", "shape_color": ["#BF360C"] },
+                { "label": "Méprisant", "shape_color": ["#BF360C"] }
               ]
             }
           ]
         },
         {
           "label": "Peur",
-          "color": ["#8B0000"],
+          "shape_color": ["#8B0000"],
           "sub_nodes": [
             {
               "label": "Anxieux",
-              "color": ["#E57373"],
+              "shape_color": ["#E57373"],
               "sub_nodes": [
-                { "label": "Inquiet", "color": ["#EF5350"] },
-                { "label": "Nerveux", "color": ["#EF5350"] },
-                { "label": "Appréhensif", "color": ["#EF5350"] },
-                { "label": "Effrayé", "color": ["#EF5350"] }
+                { "label": "Inquiet", "shape_color": ["#EF5350"] },
+                { "label": "Nerveux", "shape_color": ["#EF5350"] },
+                { "label": "Appréhensif", "shape_color": ["#EF5350"] },
+                { "label": "Effrayé", "shape_color": ["#EF5350"] }
               ]
             },
             {
               "label": "Insecure",
-              "color": ["#D32F2F"],
+              "shape_color": ["#D32F2F"],
               "sub_nodes": [
-                { "label": "Impuissant", "color": ["#C62828"] },
-                { "label": "Inférieur", "color": ["#C62828"] },
-                { "label": "Rejeté", "color": ["#C62828"] },
-                { "label": "Inadéquat", "color": ["#C62828"] }
+                { "label": "Impuissant", "shape_color": ["#C62828"] },
+                { "label": "Inférieur", "shape_color": ["#C62828"] },
+                { "label": "Rejeté", "shape_color": ["#C62828"] },
+                { "label": "Inadéquat", "shape_color": ["#C62828"] }
               ]
             },
             {
               "label": "Terrifié",
-              "color": ["#B71C1C"],
+              "shape_color": ["#B71C1C"],
               "sub_nodes": [
-                { "label": "Paniqué", "color": ["#B71C1C"] },
-                { "label": "Horrifié", "color": ["#B71C1C"] },
-                { "label": "Paralysé", "color": ["#B71C1C"] },
-                { "label": "Effrayé", "color": ["#B71C1C"] }
+                { "label": "Paniqué", "shape_color": ["#B71C1C"] },
+                { "label": "Horrifié", "shape_color": ["#B71C1C"] },
+                { "label": "Paralysé", "shape_color": ["#B71C1C"] },
+                { "label": "Effrayé", "shape_color": ["#B71C1C"] }
               ]
             }
           ]
         },
         {
           "label": "Surprise",
-          "color": ["#FFA500"],
+          "shape_color": ["#FFA500"],
           "sub_nodes": [
             {
               "label": "Étonné",
-              "color": ["#FFCC80"],
+              "shape_color": ["#FFCC80"],
               "sub_nodes": [
-                { "label": "Stupéfait", "color": ["#FFB74D"] },
-                { "label": "Sidéré", "color": ["#FFB74D"] },
-                { "label": "Choqué", "color": ["#FFB74D"] },
-                { "label": "Abasourdi", "color": ["#FFB74D"] }
+                { "label": "Stupéfait", "shape_color": ["#FFB74D"] },
+                { "label": "Sidéré", "shape_color": ["#FFB74D"] },
+                { "label": "Choqué", "shape_color": ["#FFB74D"] },
+                { "label": "Abasourdi", "shape_color": ["#FFB74D"] }
               ]
             },
             {
               "label": "Confus",
-              "color": ["#FFA726"],
+              "shape_color": ["#FFA726"],
               "sub_nodes": [
-                { "label": "Désorienté", "color": ["#FB8C00"] },
-                { "label": "Perplexe", "color": ["#FB8C00"] },
-                { "label": "Baffoué", "color": ["#FB8C00"] },
-                { "label": "Dérouté", "color": ["#FB8C00"] }
+                { "label": "Désorienté", "shape_color": ["#FB8C00"] },
+                { "label": "Perplexe", "shape_color": ["#FB8C00"] },
+                { "label": "Baffoué", "shape_color": ["#FB8C00"] },
+                { "label": "Dérouté", "shape_color": ["#FB8C00"] }
               ]
             },
             {
               "label": "Surpris",
-              "color": ["#F57C00"],
+              "shape_color": ["#F57C00"],
               "sub_nodes": [
-                { "label": "Alarmé", "color": ["#EF6C00"] },
-                { "label": "Pris de court", "color": ["#EF6C00"] },
-                { "label": "Consterné", "color": ["#EF6C00"] },
-                { "label": "Dépité", "color": ["#EF6C00"] }
+                { "label": "Alarmé", "shape_color": ["#EF6C00"] },
+                { "label": "Pris de court", "shape_color": ["#EF6C00"] },
+                { "label": "Consterné", "shape_color": ["#EF6C00"] },
+                { "label": "Dépité", "shape_color": ["#EF6C00"] }
               ]
             }
           ]
         },
         {
           "label": "Dégoût",
-          "color": ["#32CD32"],
+          "shape_color": ["#32CD32"],
           "sub_nodes": [
             {
               "label": "Révolté",
-              "color": ["#81C784"],
+              "shape_color": ["#81C784"],
               "sub_nodes": [
-                { "label": "Repoussé", "color": ["#66BB6A"] },
-                { "label": "Écœuré", "color": ["#66BB6A"] },
-                { "label": "Nauséeux", "color": ["#66BB6A"] },
-                { "label": "Horrifié", "color": ["#66BB6A"] }
+                { "label": "Repoussé", "shape_color": ["#66BB6A"] },
+                { "label": "Écœuré", "shape_color": ["#66BB6A"] },
+                { "label": "Nauséeux", "shape_color": ["#66BB6A"] },
+                { "label": "Horrifié", "shape_color": ["#66BB6A"] }
               ]
             },
             {
               "label": "Dédaigneux",
-              "color": ["#4CAF50"],
+              "shape_color": ["#4CAF50"],
               "sub_nodes": [
-                { "label": "Méprisant", "color": ["#43A047"] },
-                { "label": "Sarcastique", "color": ["#43A047"] },
-                { "label": "Dépréciatif", "color": ["#43A047"] },
-                { "label": "Dérisoire", "color": ["#43A047"] }
+                { "label": "Méprisant", "shape_color": ["#43A047"] },
+                { "label": "Sarcastique", "shape_color": ["#43A047"] },
+                { "label": "Dépréciatif", "shape_color": ["#43A047"] },
+                { "label": "Dérisoire", "shape_color": ["#43A047"] }
               ]
             },
             {
               "label": "Offensé",
-              "color": ["#388E3C"],
+              "shape_color": ["#388E3C"],
               "sub_nodes": [
-                { "label": "Indigné", "color": ["#2E7D32"] },
-                { "label": "Outragé", "color": ["#2E7D32"] },
-                { "label": "Consterné", "color": ["#2E7D32"] },
-                { "label": "Insulté", "color": ["#2E7D32"] }
+                { "label": "Indigné", "shape_color": ["#2E7D32"] },
+                { "label": "Outragé", "shape_color": ["#2E7D32"] },
+                { "label": "Consterné", "shape_color": ["#2E7D32"] },
+                { "label": "Insulté", "shape_color": ["#2E7D32"] }
               ]
             }
           ]
@@ -924,34 +924,39 @@
     
     
   ],
+
   "levels_config": [
       {
           "levels": 1,
           "radius": 100,
-          "opacity": 100,
           "font_size": 12,
-          "default_color": "#FF0000"
+          "shape_color": ["#FF0000"],
+          "shape_opacity": 100,
+          "text_opacity": 100
       },
       {
           "levels": 2,
           "outer_radius_increment": 100,
-          "opacity": 80,
+          "shape_opacity": 80,
+          "text_opacity": 80,
           "font_size": 10,
-          "default_color": "#00FF00"
+          "shape_color": ["#00FF00"]
       },
       {
           "levels": 3,
           "outer_radius_increment": 100,
-          "opacity": 80,
+          "shape_opacity": 80,
+          "text_opacity": 80,
           "font_size": 10,
-          "default_color": "#00FF00"
+          "shape_color": ["#00FF00"]
       },
       {
           "levels": {"from": 4},
           "outer_radius_increment": 120,
-          "opacity": 60,
+          "shape_opacity": 60,
+          "text_opacity": 60,
           "font_size": 8,
-          "default_color": "#0000FF"
+          "shape_color": ["#0000FF"]
       }
   ]
 

@@ -77,6 +77,7 @@ class Wheel:
 class DiagramGenerator:
     def __init__(self):
         self.shapes = []
+        self.text_elements = []
         self.id_counter = 2  # Start from 2 since 0 and 1 are used
         self.root_cells = [
             '<mxCell id="0"/>',
@@ -106,18 +107,49 @@ class DiagramGenerator:
         self.shapes.append(shape_xml)
         self.id_counter += 1
         return self.id_counter - 1  # Return the ID of the shape
-
-    def add_text_element(self, text, x, y, width, height, rotation, font_size, font_color):
+    
+    
+    def add_circle(self, center_x, center_y, radius, fill_color, stroke_color, opacity):
         shape_xml = (
-            f'<mxCell id="{self.id_counter}" value="{text}" '
-            f'style="text;html=1;align=center;verticalAlign=middle;fontSize={font_size};rotation={rotation};fontColor={font_color};" '
+            f'<mxCell id="{self.id_counter}" value="" '
+            f'style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor={fill_color};strokeColor={stroke_color};opacity={opacity};" '
             f'vertex="1" parent="1">\n'
-            f'<mxGeometry x="{x}" y="{y}" width="{width}" height="{height}" as="geometry"/>\n'
+            f'<mxGeometry x="{center_x - radius}" y="{center_y - radius}" width="{2 * radius}" height="{2 * radius}" as="geometry"/>\n'
             f'</mxCell>\n'
         )
         self.shapes.append(shape_xml)
         self.id_counter += 1
-        return self.id_counter - 1  # Return the ID of the text element
+        return self.id_counter - 1  # Return the ID of the circle
+
+    def add_annulus(self, center_x, center_y, outer_radius, inner_radius, fill_color, stroke_color, opacity):
+        dx = outer_radius - inner_radius
+        shape_xml = (
+            f'<mxCell id="{self.id_counter}" value="" '
+            f'style="verticalLabelPosition=bottom;verticalAlign=top;html=1;'
+            f'shape=mxgraph.basic.donut;dx={dx};strokeColor={stroke_color};'
+            f'fillColor={fill_color};opacity={opacity};" '
+            f'vertex="1" parent="1">\n'
+            f'<mxGeometry x="{center_x - outer_radius}" y="{center_y - outer_radius}" '
+            f'width="{2 * outer_radius}" height="{2 * outer_radius}" as="geometry"/>\n'
+            f'</mxCell>\n'
+        )
+        self.shapes.append(shape_xml)
+        self.id_counter += 1
+        return self.id_counter - 1
+
+
+    def add_text_element(self, text, x, y, width, height, rotation, font_size, font_color, opacity):
+        shape_xml = (
+            f'<mxCell id="{self.id_counter}" value="{text}" '
+            f'style="text;html=1;align=center;verticalAlign=middle;fontSize={font_size};rotation={rotation};fontColor={font_color};opacity={opacity};" '
+            f'vertex="1" parent="1">\n'
+            f'<mxGeometry x="{x}" y="{y}" width="{width}" height="{height}" as="geometry"/>\n'
+            f'</mxCell>\n'
+        )
+        self.text_elements.append(shape_xml)
+        self.id_counter += 1
+        return self.id_counter - 1
+
 
     def generate_xml(self, name):
         xml_content = (
@@ -127,9 +159,12 @@ class DiagramGenerator:
             '<root>\n'
         )
         xml_content += '\n'.join(self.root_cells) + '\n'
-        xml_content += ''.join(self.shapes)
+        xml_content += ''.join(self.shapes)        # Add shapes first
+        xml_content += ''.join(self.text_elements) # Add text elements after shapes
         xml_content += '</root>\n</mxGraphModel>\n</diagram>\n</mxfile>'
         return xml_content
+
+
 
 class GenericWheel(Wheel):
     def __init__(self, center_x, center_y, text_width, text_height, stroke_color, font_color, json_data):
@@ -141,26 +176,43 @@ class GenericWheel(Wheel):
         self.json_levels_config = json_data.get('levels_config', [])
         self.base_radius = 100  # Base radius for Level 1
 
-
-
     def get_level_config(self, level, silent=False):
-        # First, check if there's a configuration for the level in the JSON data
-        prepared_config={}
+        # Get default config for the level
+        default_level_config = self.default_config(level)
+
+        # Check if there's a configuration for the level in the JSON data
+        level_config = None
         for config in self.json_levels_config:
             if self._level_in_config(level, config.get('levels')):
                 if not silent:
                     logger.debug(f"Getting level {level} config from json data")
-                prepared_config= self._prepare_level_config(config, level)
+                level_config = config.copy()
+                break  # Stop after finding the first matching config
 
-        if not prepared_config:
-            # If no configuration found, use the default configuration function
-            prepared_config=self._prepare_level_config(self.default_config(level), level)
+        if level_config is None:
+            # Use the default config
+            level_config = default_level_config
             if not silent:
-                logger.debug(f"Getting level {level} config from default_config")
+                logger.debug(f"Using default config for level {level}")
+        else:
+            # Merge default_level_config with level_config, giving precedence to level_config
+            for key, value in default_level_config.items():
+                if key not in level_config:
+                    level_config[key] = value
+
+            # Remove conflicting keys after merging
+            if 'outer_radius' in level_config and 'outer_radius_increment' in level_config:
+                del level_config['outer_radius_increment']
+            if 'inner_radius' in level_config and 'inner_radius_increment' in level_config:
+                del level_config['inner_radius_increment']
+
+        # Prepare level configuration
+        prepared_config = self._prepare_level_config(level_config, level)
 
         if not silent:
             logger.debug(f"Level {level} config: {prepared_config}")
         return prepared_config
+
 
     def _level_in_config(self, level, levels):
         if levels is None:
@@ -193,54 +245,61 @@ class GenericWheel(Wheel):
 
             # For levels above 1
             # Outer radius
-            if  "outer_radius" in config and "outer_radius_increment" in config:
+            if "outer_radius" in config and "outer_radius_increment" in config:
                 raise ValueError(f"Invalid configuration: both outer_radius and outer_radius_increment are used in level {level}")
             elif "outer_radius_increment" in config:
                 outer_increment = self._get_config_value(config.get('outer_radius_increment'), level)
                 prepared_config['outer_radius'] = prev_outer_radius + outer_increment
-            elif "outer_radius" in config : 
+            elif "outer_radius" in config:
                 prepared_config['outer_radius'] = config.get('outer_radius')
-            else : 
+            else:
                 raise KeyError(f"Neither 'outer_radius' nor 'outer_radius_increment' were found in the level config of level {level}")
 
             # Inner radius
-            if  "inner_radius" in config and "inner_radius_increment" in config:
+            if "inner_radius" in config and "inner_radius_increment" in config:
                 raise ValueError(f"Invalid configuration: both inner_radius and inner_radius_increment are used in level {level}")
             elif "inner_radius_increment" in config:
                 inner_increment = self._get_config_value(config.get('inner_radius_increment'), level)
                 prepared_config['inner_radius'] = prev_outer_radius + inner_increment
-                logger.debug(f"inner radius was incremented by {inner_increment} from previous outer_radius {prev_outer_radius}")
-            elif "inner_radius" in config : 
+            elif "inner_radius" in config:
                 prepared_config['inner_radius'] = config.get('inner_radius')
             else:
-                prepared_config['inner_radius'] = prev_outer_radius # adjacent to the lower level
+                prepared_config['inner_radius'] = prev_outer_radius  # adjacent to the lower level
 
             # Validation to ensure inner_radius is not greater than outer_radius
             if prepared_config['inner_radius'] > prepared_config['outer_radius']:
                 logger.error(f"inner_radius ({prepared_config['inner_radius']}) cannot be greater than outer_radius ({prepared_config['outer_radius']}) in level {level}")
                 raise ValueError(f"Invalid configuration: inner_radius ({prepared_config['inner_radius']}) is greater than outer_radius ({prepared_config['outer_radius']}) in level {level}")
-            
-        prepared_config.pop("levels")
+
+        prepared_config.pop("levels", None)
 
         return prepared_config
 
     def default_config(self, level):
-        # Default configuration if none is provided
+        # Default configuration for levels
         if level == 1:
             return {
                 'levels': 1,
                 'radius': self.base_radius,
-                'opacity': 100,
                 'font_size': 10,
-                'default_color': '#a20025'
+                'shape_color': '#a20025',
+                'text_color': '#000000',
+                'shape_opacity': 100,
+                'text_opacity': 100,
+                'text_rotation': 'radial',
+                'text_placement': 'centered',
             }
         else:
             return {
                 'levels': level,
                 'outer_radius_increment': 50,
-                'opacity': lambda lvl: max(100 - (lvl - 1) * 10, 30),
                 'font_size': lambda lvl: max(10 - (lvl - 1), 6),
-                'default_color': lambda lvl: Wheel.adjust_color('#a20025', amount=0.1 * (lvl - 1))
+                'shape_color': lambda lvl: Wheel.adjust_color('#a20025', amount=0.1 * (lvl - 1)),
+                'text_color': '#000000',
+                'shape_opacity': lambda lvl: max(100 - (lvl - 1) * 10, 30),
+                'text_opacity': 100,
+                'text_rotation': 'radial',
+                'text_placement': 'centered',
             }
 
     def _get_config_value(self, value, level):
@@ -264,7 +323,7 @@ class GenericWheel(Wheel):
         xml_content = diagram.generate_xml(name)
         return xml_content
 
-    def _process_nodes(self, nodes, start_angle, end_angle, level, diagram):
+    def _process_nodes(self, nodes, start_angle, end_angle, level, diagram, inherited_properties=None):
         logger.debug(f"Processing Level {level}, nodes: {[node['label'] for node in nodes]}")
 
         # Get level configuration
@@ -273,14 +332,12 @@ class GenericWheel(Wheel):
             logger.debug(f"No configuration found for Level {level}. Stopping recursion.")
             return  # No more levels to process
 
-        # Calculate radii and other parameters
-        inner_radius = level_config['inner_radius']
-        outer_radius = level_config['outer_radius']
-        arc_width = 1 - (inner_radius / outer_radius) if level > 1 else 1
-        opacity = self._get_config_value(level_config.get('opacity', 100), level)
-        font_size = self._get_config_value(level_config.get('font_size', 10), level)
-        default_color = self._get_config_value(level_config.get('default_color', '#FFFFFF'), level)
-        r_text = (inner_radius + outer_radius) / 2 if level > 1 else outer_radius * 0.6  # Adjust text position
+        # Initialize inherited_properties if None
+        if inherited_properties is None:
+            inherited_properties = {}
+
+        # Properties to resolve
+        property_names = ['text_rotation', 'text_placement', 'font_size', 'shape_color', 'text_color', 'shape_opacity', 'text_opacity']
 
         total_angle = (end_angle - start_angle) % 1.0
         if total_angle <= 0:
@@ -300,6 +357,16 @@ class GenericWheel(Wheel):
         current_angle = start_angle
 
         for node in nodes:
+            # Initialize resolved_properties dict for this node
+            resolved_properties = {}
+            for prop in property_names:
+                parent_value = inherited_properties.get(prop)
+                if prop in ['shape_color', 'text_color']:
+                    resolved_value = self.resolve_color_property(prop, node, level_config, parent_value, level)
+                else:
+                    resolved_value = self.resolve_property(prop, node, level_config, parent_value, level)
+                resolved_properties[prop] = resolved_value
+
             if 'percentage' in node:
                 node_percentage = node['percentage']
             else:
@@ -313,42 +380,77 @@ class GenericWheel(Wheel):
 
             logger.debug(f"Processing node: {node['label']} at Level {level}, start_angle: {current_angle}, end_angle: {current_end_angle}")
 
-            colors_list = node.get('color', [])
-            base_color = colors_list[0] if len(colors_list) > 0 else default_color
-            fill_color = colors_list[level - 1] if len(colors_list) >= level else Wheel.adjust_color(base_color, amount=0.1 * (level - 1))
+            # Extract resolved properties
+            fill_color = resolved_properties['shape_color']
+            shape_opacity = resolved_properties['shape_opacity']
+            font_color = resolved_properties['text_color']
+            text_opacity = resolved_properties['text_opacity']
+            font_size = resolved_properties['font_size']
+            rotation_option = resolved_properties['text_rotation']
+            placement_option = resolved_properties['text_placement']
+
+            # Get radii from level configuration
+            inner_radius = level_config['inner_radius']
+            outer_radius = level_config['outer_radius']
+            arc_width = 1 - (inner_radius / outer_radius) if level > 1 else 1
 
             if level == 1:
-                # Level 1 is a pie slice
-                diagram.add_pie_slice(
-                    self.center_x, self.center_y, outer_radius,
-                    current_angle, current_end_angle,
-                    fill_color, self.stroke_color, opacity
-                )
+                if len(nodes) == 1:
+                    # It's a circle
+                    diagram.add_circle(
+                        self.center_x, self.center_y, outer_radius,
+                        fill_color, self.stroke_color, shape_opacity
+                    )
+                else:
+                    # It's a pie slice
+                    diagram.add_pie_slice(
+                        self.center_x, self.center_y, outer_radius,
+                        current_angle, current_end_angle,
+                        fill_color, self.stroke_color, shape_opacity
+                    )
             else:
-                # Levels above 1 are annulus slices
-                diagram.add_annulus_slice(
-                    self.center_x, self.center_y, outer_radius, arc_width,
-                    current_angle, current_end_angle,
-                    fill_color, self.stroke_color, opacity
-                )
+                if len(nodes) == 1:
+                    # It's an annulus
+                    diagram.add_annulus(
+                        self.center_x, self.center_y, outer_radius, inner_radius,
+                        fill_color, self.stroke_color, shape_opacity
+                    )
+                else:
+                    # It's an annulus slice
+                    diagram.add_annulus_slice(
+                        self.center_x, self.center_y, outer_radius, arc_width,
+                        current_angle, current_end_angle,
+                        fill_color, self.stroke_color, shape_opacity
+                    )
 
-            # Add text label
+            # Calculate mid-angle
             mid_angle = Wheel.calculate_mid_angle(current_angle, current_end_angle)
             mid_angle_deg = (mid_angle * 360.0) - 90.0
             if mid_angle_deg < 0:
                 mid_angle_deg += 360.0
-            rotation = Wheel.compute_text_rotation(mid_angle_deg)
-            x_text, y_text = Wheel.calculate_positions(self.center_x, self.center_y, r_text, mid_angle_deg, self.text_width, self.text_height)
+
+            # Calculate rotation and position based on options
+            rotation = self.compute_text_rotation_option(rotation_option, mid_angle_deg)
+            x_text, y_text = self.compute_text_position_option(
+                placement_option, self.center_x, self.center_y,
+                inner_radius, outer_radius, mid_angle_deg,
+                self.text_width, self.text_height
+            )
+
+            # Add text element
             diagram.add_text_element(
                 node['label'], x_text, y_text,
                 self.text_width, self.text_height, rotation,
-                font_size, self.font_color
+                font_size, font_color, text_opacity
             )
 
             # Process sub-nodes recursively
             sub_nodes = node.get('sub_nodes', [])
             if sub_nodes:
-                self._process_nodes(sub_nodes, current_angle, current_end_angle, level + 1, diagram)
+                self._process_nodes(
+                    sub_nodes, current_angle, current_end_angle, level + 1, diagram,
+                    inherited_properties=resolved_properties
+                )
 
             # Update angles and counts
             current_angle = current_end_angle
@@ -356,8 +458,108 @@ class GenericWheel(Wheel):
                 total_unspecified_nodes -= 1
                 remaining_percentage -= node_percentage
 
+    def resolve_property(self, prop, node, level_config, parent_value, level):
+        node_value = node.get(prop)
+        if node_value is not None:
+            node_value = self._get_config_value(node_value, level)
+            return node_value
 
+        level_value = level_config.get(prop)
+        if level_value is not None:
+            level_value = self._get_config_value(level_value, level)
+            return level_value
 
+        if parent_value is not None:
+            return parent_value
+
+        # Property should be in level_config due to merging with default_config
+        return None
+
+    def resolve_color_property(self, prop, node, level_config, parent_value, level):
+        # First, try node value
+        node_value = node.get(prop)
+        if node_value is None:
+            # Check for 'color' as fallback in node
+            node_value = node.get('color')
+
+        if node_value is not None:
+            node_value = self._get_config_value(node_value, level)
+            if isinstance(node_value, list):
+                if len(node_value) >= level:
+                    return node_value[level - 1]
+                else:
+                    return node_value[-1]
+            else:
+                return node_value
+
+        # Next, try level_value
+        level_value = level_config.get(prop)
+        if level_value is None:
+            level_value = level_config.get('color')
+
+        if level_value is not None:
+            level_value = self._get_config_value(level_value, level)
+            if isinstance(level_value, list):
+                if len(level_value) >= level:
+                    return level_value[level - 1]
+                else:
+                    return level_value[-1]
+            else:
+                return level_value
+
+        # Next, try parent value
+        if parent_value is not None:
+            if isinstance(parent_value, list):
+                if len(parent_value) >= level:
+                    return parent_value[level - 1]
+                else:
+                    return parent_value[-1]
+            else:
+                return parent_value
+
+        # Property should be in level_config due to merging with default_config
+        return None
+
+    def compute_text_rotation_option(self, rotation_option, mid_angle_deg):
+        if isinstance(rotation_option, dict) and rotation_option.get('type') == 'constant':
+            # User specified a constant angle
+            rotation = rotation_option.get('angle', 0)
+        elif rotation_option == 'horizontal':
+            rotation = 0
+        elif rotation_option == 'vertical':
+            rotation = 90
+        elif rotation_option == 'radial':
+            rotation = Wheel.compute_text_rotation(mid_angle_deg)
+        elif rotation_option == 'perpendicular':
+            # Pure Tangential: Text is aligned tangentially without concern for readability
+            rotation = (mid_angle_deg + 90) % 360
+        elif rotation_option == 'perpendicular_upright':
+            # Tangential Upright: Text is aligned tangentially but adjusted to be upright
+            rotation = (mid_angle_deg + 90) % 360
+            # Ensure text is upright
+            if 90 < rotation <= 270:
+                rotation = (rotation + 180) % 360
+        else:
+            # Default to radial
+            rotation = Wheel.compute_text_rotation(mid_angle_deg)
+        return rotation
+
+    def compute_text_position_option(self, placement_option, center_x, center_y, inner_radius, outer_radius, mid_angle_deg, text_width, text_height):
+        if placement_option == 'outside':
+            # Place text outside the outer radius
+            r_text = outer_radius + text_height / 2 + 5  # Add an offset
+        elif placement_option == 'inside_top':
+            # Place text at the inner edge of the outer circle
+            r_text = outer_radius - text_height / 2
+        elif placement_option == 'centered':
+            # Place text in the middle of the node
+            r_text = (inner_radius + outer_radius) / 2
+        else:
+            # Default to centered
+            r_text = (inner_radius + outer_radius) / 2
+
+        x_text, y_text = Wheel.calculate_positions(center_x, center_y, r_text, mid_angle_deg, text_width, text_height)
+        return x_text, y_text
 
 def main():
     global logger
