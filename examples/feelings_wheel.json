@@ -747,9 +747,6 @@
                 { "label": "Abandonné", "shape_color": ["#42A5F5"] },
                 { "label": "Ignoré", "shape_color": ["#42A5F5"] },
                 { "label": "Non désiré", "shape_color": ["#42A5F5"] },
-                { "label": "Rejeté", "shape_color": ["#42A5F5"] },
-                { "label": "Rejeté", "shape_color": ["#42A5F5"] },
-                { "label": "Rejeté", "shape_color": ["#42A5F5"] },
                 { "label": "Rejeté", "shape_color": ["#42A5F5"] }
               ]
             },

@@ -40,7 +40,7 @@
           "outer_radius_increment": 240,
           "shape_opacity": 70,
           "text_opacity": 70,
-          "font_size": 10,
+          "font_size": 13,
           "shape_color": ["#0000FF"],
           "text_rotation": "radial",
           "text_placement": "centered"
