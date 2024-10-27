@@ -947,7 +947,6 @@
       },
       {
           "levels": 3,
-          "uniform_angle": true,
           "outer_radius_increment": 100,
           "shape_opacity": 80,
           "text_opacity": 80,
