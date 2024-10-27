@@ -1,5 +1,5 @@
 {
-  "type": "generic_wheel",
+  "type": "flavor_wheel",
   "structures": [
     {
       "name": "English",
@@ -747,6 +747,9 @@
                 { "label": "Abandonné", "shape_color": ["#42A5F5"] },
                 { "label": "Ignoré", "shape_color": ["#42A5F5"] },
                 { "label": "Non désiré", "shape_color": ["#42A5F5"] },
+                { "label": "Rejeté", "shape_color": ["#42A5F5"] },
+                { "label": "Rejeté", "shape_color": ["#42A5F5"] },
+                { "label": "Rejeté", "shape_color": ["#42A5F5"] },
                 { "label": "Rejeté", "shape_color": ["#42A5F5"] }
               ]
             },
@@ -928,7 +931,7 @@
   "levels_config": [
       {
           "levels": 1,
-          "radius": 100,
+          "outer_radius": 100,
           "font_size": 12,
           "shape_color": ["#FF0000"],
           "shape_opacity": 100,
@@ -944,6 +947,7 @@
       },
       {
           "levels": 3,
+          "uniform_angle": true,
           "outer_radius_increment": 100,
           "shape_opacity": 80,
           "text_opacity": 80,

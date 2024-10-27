@@ -1,0 +1,137 @@
+{
+  "type": "percentage_wheel",
+  "levels_config": [
+    {
+        "levels": 1,
+        "outer_radius": 300,
+        "font_size": 15,
+        "shape_opacity": 100,
+        "text_opacity": 100
+    },
+    {
+        "levels": {"from": 2},
+        "outer_radius_increment": 600,
+        "shape_opacity": 100,
+        "text_opacity": 100,
+        "font_size": 15
+    },
+    {
+      "levels": {"from": 3},
+      "outer_radius_increment": 300,
+      "shape_opacity": 100,
+      "text_opacity": 100,
+      "font_size": 10
+  }
+  ],
+  "year": 2023,
+  "structures": [
+    {
+      "name": "Renewable Energy Production",
+      "nodes": [
+        {
+          "label": "Hydropower (37%)",
+          "shape_color": ["#4682B4"],
+          "percentage": 37,
+          "sub_nodes": [
+            {
+              "label": "Large Hydropower (29.6%)",
+              "shape_color": ["#B0C4DE"],
+              "percentage": 80
+            },
+            {
+              "label": "Small Hydropower (7.4%)",
+              "shape_color": ["#87CEEB"],
+              "percentage": 20
+            }
+          ]
+        },
+        {
+          "label": "Wind Energy (28%)",
+          "shape_color": ["#00BFFF"],
+          "percentage": 28,
+          "sub_nodes": [
+            {
+              "label": "Onshore Wind (22.4%)",
+              "shape_color": ["#B0E0E6"],
+              "percentage": 80
+            },
+            {
+              "label": "Offshore Wind (5.6%)",
+              "shape_color": ["#00CED1"],
+              "percentage": 20
+            }
+          ]
+        },
+        {
+          "label": "Solar Energy (27%)",
+          "shape_color": ["#FFD700"],
+          "percentage": 27,
+          "sub_nodes": [
+            {
+              "label": "Photovoltaic (PV) (24.3%)",
+              "shape_color": ["#FFECB3"],
+              "percentage": 90
+            },
+            {
+              "label": "Concentrated Solar Power (CSP) (2.7%)",
+              "shape_color": ["#FFD700"],
+              "percentage": 10
+            }
+          ]
+        },
+        {
+          "label": "Biomass Energy (6%)",
+          "shape_color": ["#32CD32"],
+          "percentage": 6,
+          "sub_nodes": [
+            {
+              "label": "Solid Biomass (4%)",
+              "shape_color": ["#98FB98"],
+              "percentage": 67
+            },
+            {
+              "label": "Biofuels (1.5%)",
+              "shape_color": ["#32CD32"],
+              "percentage": 25
+            },
+            {
+              "label": "Biogas (0.5%)",
+              "shape_color": ["#32CD32"],
+              "percentage": 8
+            }
+          ]
+        },
+        {
+          "label": "Geothermal Energy (1%)",
+          "shape_color": ["#8B4513"],
+          "percentage": 1,
+          "sub_nodes": [
+            {
+              "label": "Hydrothermal (0.8%)",
+              "shape_color": ["#D2B48C"],
+              "percentage": 80
+            },
+            {
+              "label": "Enhanced Geothermal Systems (EGS) (0.2%)",
+              "shape_color": ["#A0522D"],
+              "percentage": 20
+            }
+          ]
+        },
+        {
+          "label": "Others (1%)",
+          "shape_color": ["#1E90FF"],
+          "percentage": 1,
+          "sub_nodes": [
+            {
+              "label": "Others (1%)",
+              "shape_color": ["#1E90FF"],
+              "percentage" : 100
+            }
+
+          ]
+        }
+      ]
+    }
+  ]
+}

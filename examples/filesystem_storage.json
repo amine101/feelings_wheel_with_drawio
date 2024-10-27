@@ -1,10 +1,10 @@
 {
 
-    "type": "generic_wheel",
+    "type": "percentage_wheel",
     "levels_config": [
       {
           "levels": 1,
-          "radius": 100,
+          "outer_radius": 100,
           "shape_opacity": 100,
           "text_opacity": 100,
           "font_size": 12,
