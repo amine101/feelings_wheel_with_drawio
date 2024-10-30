@@ -113,6 +113,7 @@
             },
             {
               "label": "Enhanced Geothermal Systems (EGS) (0.2%)",
+              "text_placement": "callout",
               "shape_color": ["#A0522D"],
               "percentage": 20
             }

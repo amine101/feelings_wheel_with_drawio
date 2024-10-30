@@ -948,6 +948,7 @@
           "shape_opacity": 80,
           "text_opacity": 80,
           "font_size": 10,
+
           "shape_color": ["#00FF00"]
       },
       {

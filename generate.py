@@ -36,6 +36,8 @@ class Node:
             setattr(self, key, value)
         self.start_angle = None
         self.end_angle = None
+        self.shape_id = None   # The corresponding drawio shape element ( if drawed) 
+        self.text_id = None    # The corresponding drawio text (label) element ( if drawed ) 
         self.resolved_properties = {}
 
     def resolve_properties(self, level_config, level_number):
@@ -308,6 +310,9 @@ class Wheel:
         self.json_levels_config = json_data.get('levels_config', [])
         self.wheel_structures = []
 
+        # Create wheel structures
+        self._create_wheel_structures()
+
     def _create_wheel_structures(self):
         for structure in self.structures_list:
             structure_name = structure.get('name', 'Unnamed Structure')
@@ -382,6 +387,7 @@ class Wheel:
         return xml_content
 
 
+
     def _process_level(self, level, diagram=None):
         logger.debug(f"Processing Level {level.level_number}, nodes: {[node.label for node in level.nodes]}")
 
@@ -415,8 +421,8 @@ class Wheel:
             outer_radius = level_config['outer_radius']
             arc_width = 1 - (inner_radius / outer_radius) if level.level_number > 1 else 1
 
-
-            # Draw shapes
+            # Draw shapes and capture the shape ID
+            shape_id = None
             if start_angle is None or end_angle is None:
                 # Skip the node
                 logger.info(f"Skipping Node [level:{level.level_number} |label: {node.label}] start_angle= {start_angle}, end_angle= {end_angle}")
@@ -427,13 +433,13 @@ class Wheel:
                 # Full circle or annulus
                 if level.level_number == 1:
                     logger.info(f" Drawing Node [level:{level.level_number} |label: {node.label}]: Circle ")
-                    diagram.add_circle(
+                    shape_id = diagram.add_circle(
                         self.center_x, self.center_y, outer_radius,
                         fill_color, self.stroke_color, shape_opacity
                     )
                 else:
                     logger.info(f" Drawing Node [level:{level.level_number} |label: {node.label}]: Annulus ")
-                    diagram.add_annulus(
+                    shape_id = diagram.add_annulus(
                         self.center_x, self.center_y, outer_radius, inner_radius,
                         fill_color, self.stroke_color, shape_opacity
                     )
@@ -441,80 +447,165 @@ class Wheel:
                 # Slices
                 if level.level_number == 1:
                     logger.info(f" Drawing Node [level:{level.level_number} |label: {node.label}]: Pie Slice    : {start_angle} - {end_angle}")
-                    diagram.add_pie_slice(
+                    shape_id = diagram.add_pie_slice(
                         self.center_x, self.center_y, outer_radius,
                         start_angle, end_angle,
                         fill_color, self.stroke_color, shape_opacity
                     )
                 else:
                     logger.info(f" Drawing Node [level:{level.level_number} |label: {node.label}]: Annulus Slice : {start_angle} - {end_angle}")
-                    diagram.add_annulus_slice(
+                    shape_id = diagram.add_annulus_slice(
                         self.center_x, self.center_y, outer_radius, arc_width,
                         start_angle, end_angle,
                         fill_color, self.stroke_color, shape_opacity
                     )
 
+            node.shape_id = shape_id  # Store the shape ID
+
             # Calculate mid-angle
-            mid_angle = Wheel.calculate_mid_angle(start_angle, end_angle)
+            mid_angle = Wheel.calculate_mid_angle(start_angle, end_angle)   
             mid_angle_deg = (mid_angle * 360.0) - 90.0
             if mid_angle_deg < 0:
                 mid_angle_deg += 360.0
+            theta_rad = math.radians(mid_angle_deg)
+
+            # Compute exitDx and exitDy for the source shape
+            cos_theta = math.cos(theta_rad)
+            sin_theta = math.sin(theta_rad)
+
+            # The shape is centered at (x_shape_center, y_shape_center)
+            # For shapes centered at the diagram center:
+            x_shape_center = self.center_x
+            y_shape_center = self.center_y
+
+            # Compute exitDx and exitDy
+            radius = outer_radius  # For the outer edge of the shape
+            exitDx = radius * cos_theta
+            exitDy = radius * sin_theta
+
+            # Format exitDx and exitDy as strings with 3 decimal places
+            exitDx_str = f"{exitDx:.3f}"
+            exitDy_str = f"{exitDy:.3f}"
+
+            # Set exitX and exitY to 0.5 (center of the shape)
+            exitX_str = "0.5"
+            exitY_str = "0.5"
 
             # Compute rotation and position
-            rotation = self.compute_text_rotation_option(rotation_option, mid_angle_deg)
+            rotation = self.compute_text_rotation_option(rotation_option, mid_angle_deg, placement_option)
             x_text, y_text = self.compute_text_position_option(
                 placement_option, self.center_x, self.center_y,
                 inner_radius, outer_radius, mid_angle_deg,
-                self.text_width, self.text_height
+                self.text_width, self.text_height, level.level_number
             )
 
-            # Add text element
-            diagram.add_text_element(
+            # Add text element and capture its ID
+            text_id = diagram.add_text_element(
                 node.label, x_text, y_text,
                 self.text_width, self.text_height, rotation,
                 font_size, font_color, text_opacity
-            )    
+            )
+            node.text_id = text_id  # Store the text ID
 
-    def compute_text_rotation_option(self, rotation_option, mid_angle_deg):
-        if isinstance(rotation_option, dict) and rotation_option.get('type') == 'constant':
-            # User specified a constant angle
-            rotation = rotation_option.get('angle', 0)
-        elif rotation_option == 'horizontal':
-            rotation = 0
-        elif rotation_option == 'vertical':
-            rotation = 90
-        elif rotation_option == 'radial':
-            rotation = Wheel.compute_text_rotation(mid_angle_deg)
-        elif rotation_option == 'perpendicular':
-            # Pure Tangential: Text is aligned tangentially without concern for readability
-            rotation = (mid_angle_deg + 90) % 360
-        elif rotation_option == 'perpendicular_upright':
-            # Tangential Upright: Text is aligned tangentially but adjusted to be upright
-            rotation = (mid_angle_deg + 90) % 360
-            # Ensure text is upright
-            if 90 < rotation <= 270:
-                rotation = (rotation + 180) % 360
+            # If placement is "callout", draw a leader line
+            if placement_option == 'callout':
+                # Start and end points for the line
+                x_start = x_shape_center + radius * cos_theta
+                y_start = y_shape_center + radius * sin_theta
+                x_end = x_text + (self.text_width / 2)
+                y_end = y_text + (self.text_height / 2)
+
+                # Define the style dictionary with connection parameters
+                style_dict = {
+                    "strokeColor": "#000000",
+                    "strokeWidth": "1",
+                    "endArrow": "none",
+                    "exitX": exitX_str,
+                    "exitY": exitY_str,
+                    "exitDx": exitDx_str,
+                    "exitDy": exitDy_str,
+                    "exitPerimeter": "0",  # Not using perimeter calculation
+                    "entryPerimeter": "0"
+                }
+
+                # Add the line
+                diagram.add_line(
+                    source_id=shape_id,
+                    target_id=text_id,
+                    x1=x_start,
+                    y1=y_start,
+                    x2=x_end,
+                    y2=y_end,
+                    style_dict=style_dict
+                )
+                
+
+
+    def compute_text_rotation_option(self, rotation_option, mid_angle_deg, placement_option):
+        if placement_option == 'callout':
+            rotation = 0  # Keep text horizontal
         else:
-            # Default to radial
-            rotation = Wheel.compute_text_rotation(mid_angle_deg)
+            if isinstance(rotation_option, dict) and rotation_option.get('type') == 'constant':
+                # User specified a constant angle
+                rotation = rotation_option.get('angle', 0)
+            elif rotation_option == 'horizontal':
+                rotation = 0
+            elif rotation_option == 'vertical':
+                rotation = 90
+            elif rotation_option == 'radial':
+                rotation = Wheel.compute_text_rotation(mid_angle_deg)
+            elif rotation_option == 'perpendicular':
+                # Pure Tangential: Text is aligned tangentially without concern for readability
+                rotation = (mid_angle_deg + 90) % 360
+            elif rotation_option == 'perpendicular_upright':
+                # Tangential Upright: Text is aligned tangentially but adjusted to be upright
+                rotation = (mid_angle_deg + 90) % 360
+                # Ensure text is upright
+                if 90 < rotation <= 270:
+                    rotation = (rotation + 180) % 360
+            else:
+                # Default to radial
+                rotation = Wheel.compute_text_rotation(mid_angle_deg)
         return rotation
 
-    def compute_text_position_option(self, placement_option, center_x, center_y, inner_radius, outer_radius, mid_angle_deg, text_width, text_height):
-        if placement_option == 'outside':
-            # Place text outside the outer radius
-            r_text = outer_radius + text_height / 2 + 5  # Add an offset
-        elif placement_option == 'inside_top':
-            # Place text at the inner edge of the outer circle
-            r_text = outer_radius - text_height / 2
-        elif placement_option == 'centered':
-            # Place text in the middle of the node
-            r_text = (inner_radius + outer_radius) / 2
-        else:
-            # Default to centered
-            r_text = (inner_radius + outer_radius) / 2
 
-        x_text, y_text = Wheel.calculate_positions(center_x, center_y, r_text, mid_angle_deg, text_width, text_height)
-        return x_text, y_text
+    def compute_text_position_option(self, placement_option, center_x, center_y, inner_radius, outer_radius, mid_angle_deg, text_width, text_height, level_number):
+        if placement_option == 'callout':
+            # Place text outside the diagram at a distance proportional to the level number
+            # Calculate the maximum radius of the diagram
+            diagram_outer_radius = outer_radius
+            # Define the base offset distance from the outer radius
+            base_offset = 30  # You can adjust this value as needed
+            # Calculate the additional offset based on the level number
+            level_offset = base_offset + (level_number * 10)  
+            # Total radius for placing the text
+            r_text = diagram_outer_radius + level_offset
+
+            # Compute x_text and y_text based on the mid_angle
+            x_text = center_x + r_text * math.cos(math.radians(mid_angle_deg)) - text_width / 2
+            y_text = center_y + r_text * math.sin(math.radians(mid_angle_deg)) - text_height / 2
+
+            # TODO: Optional: Adjust positions to avoid overlap (leveling)
+            # For now, we'll leave it as is
+
+            return x_text, y_text
+        else:
+            # Existing code for other placement options
+            if placement_option == 'outside':
+                # Place text outside the outer radius
+                r_text = outer_radius + text_height / 2 + 5  # Add an offset
+            elif placement_option == 'inside_top':
+                # Place text at the inner edge of the outer circle
+                r_text = outer_radius - text_height / 2
+            elif placement_option == 'centered':
+                # Place text in the middle of the node
+                r_text = (inner_radius + outer_radius) / 2
+            else:
+                # Default to centered
+                r_text = (inner_radius + outer_radius) / 2
+
+            x_text, y_text = Wheel.calculate_positions(center_x, center_y, r_text, mid_angle_deg, text_width, text_height)
+            return x_text, y_text
 
 
     @staticmethod
@@ -567,13 +658,11 @@ class Wheel:
 
 class FlavorWheel(Wheel):
     def __init__(self, center_x, center_y, text_width, text_height, stroke_color, font_color, json_data):
-        super().__init__(center_x, center_y, text_width, text_height, stroke_color, font_color, json_data)
+        logger.debug("Initializing Flavor Wheel with provided JSON data")
         if json_data.get('type') != 'flavor_wheel':
             raise ValueError("Unsupported wheel type. This generator can only handle 'flavor_wheel' type.")
 
-
-        # Create wheel structures
-        self._create_wheel_structures()
+        super().__init__(center_x, center_y, text_width, text_height, stroke_color, font_color, json_data)
 
     def _assign_node_angles(self, nodes, start_angle, end_angle):
         total_angle = (end_angle - start_angle) % 1.0
@@ -605,12 +694,11 @@ class FlavorWheel(Wheel):
 class PercentageWheel(Wheel):
     def __init__(self, center_x, center_y, text_width, text_height, stroke_color, font_color, json_data):
         logger.debug("Initializing Percentage Wheel with provided JSON data")
-        super().__init__(center_x, center_y, text_width, text_height, stroke_color, font_color, json_data)
         if json_data.get('type') != 'percentage_wheel':
             raise ValueError("Unsupported wheel type. This generator can only handle 'percentage_wheel' type.")
 
-        # Create wheel structures
-        self._create_wheel_structures()
+        super().__init__(center_x, center_y, text_width, text_height, stroke_color, font_color, json_data)
+
 
     def _assign_node_angles(self, nodes, start_angle, end_angle):
         total_angle = (end_angle - start_angle) % 1.0
@@ -643,8 +731,6 @@ class PercentageWheel(Wheel):
         # Check if any node has 100% percentage
         nodes_with_100_percent = [node for node in nodes if node.percentage == 100]
         if nodes_with_100_percent:
-            #if len(nodes_with_100_percent) > 1:
-            #    raise ValueError(f"Total specified percentage exceeds 100%")
             # Only assign angles to the node with 100% percentage
             node = nodes_with_100_percent[0] 
             node.start_angle = start_angle
@@ -679,10 +765,6 @@ class PercentageWheel(Wheel):
                     self._assign_node_angles(node.sub_nodes, node.start_angle, node.end_angle)
 
                 current_angle = node.end_angle
-
-                #if node.percentage == 0:
-                #    total_unspecified_nodes -= 1
-                #    remaining_percentage -= node_percentage
 
 
 

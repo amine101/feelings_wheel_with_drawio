@@ -29,7 +29,7 @@ The Sunburst Chart Generator is a Python script designed to create sunburst char
 
  - **Color Adjustment:** Adjust colors automatically for different levels to enhance visual clarity.
 
- - **Dynamic Text Labeling:** Add text labels to each chart segment with automatic positioning and rotation to maintain readability.
+ - **Dynamic Text Labeling:** Add text labels to each chart node with automatic positioning and rotation to maintain readability.
 
  - **Flexible JSON Input:** Use a structured JSON file to define chart data and configurations.
 
@@ -140,7 +140,7 @@ This section provides a detailed description of the configuration parameters tha
 | `shape_opacity` | All                   | Node, Level, Parent Node (Inherited) | `integer` (0 to 100), `lambda` function         | Sets the opacity of the shape. Example: `100` for fully opaque, or `lambda lvl: max(100 - (lvl - 1) * 10, 30)`. |
 | `text_opacity`  | All                   | Node, Level, Parent Node (Inherited) | `integer` (0 to 100)                            | Sets the opacity of the text. Example: `100` for fully opaque. |
 | `text_rotation` | All                   | Node, Level, Parent Node (Inherited) | `horizontal`, `vertical`, `radial`, `perpendicular`, `perpendicular_upright`, `constant` (`{'type': 'constant', 'angle': 45}`)                                        | Controls how the text is rotated. Can be set explicitly or inherited. |
-| `text_placement`| All                   | Node, Level, Parent Node (Inherited) | `outside`, `inside_top`, `centered`                                         | Controls where the text is placed within the shape. |
+| `text_placement`| All                   | Node, Level, Parent Node (Inherited) | `outside`, `inside_top`, `centered`, `callout`                                         | Controls where the text is placed within the shape. |
 | `inner_radius`  | Concentric           | Level  >=2          | `float`, `lambda` function                       | Sets the inner radius of the node's shape in concentric layouts. Example: `100` or `lambda lvl: prev_outer_radius + 20`. |
 | `outer_radius`  | Concentric           | Level (all)          | `float`, `lambda` function                       | Sets the outer radius of the node's shape. Example: `100` or `lambda lvl: prev_outer_radius + 50`. |
 | `outer_radius_increment` | Concentric   | Level >=2   | `float`, `lambda` function                       | Increases the outer radius based on the previous level. Example: `50` or `lambda lvl: 40 + lvl * 5`. |
@@ -183,6 +183,8 @@ This section provides a detailed description of the configuration parameters tha
 
 #### `text_placement` :
 
+- `callout`: The text is placed outside the outer radius of the node as a callout ( linked with a line) to the node ( useful when the node is too narrow).
+    Only visually makes sense for the outer nodes (leave nodes).
 - `outside`: The text is placed outside the outer radius of the node.
 - `inside_top`: The text is placed inside the outer radius, aligned to the inner edge.
 - `centered`: The text is placed in the center of the node (default).
@@ -440,11 +442,11 @@ The `levels_config` section in the JSON input allows you to define configuration
 
 - **font_size:** (optional) Defines the font size for text labels in this level. This can either be a fixed integer (e.g., `12`) or a function that returns the font size based on the level.
 
-- **shape_color:** (optional) Specifies the color of the shapes (segments) in the given level. It can be a hexadecimal color string (e.g., `#FF5733`) or a function that returns the color based on the level.
+- **shape_color:** (optional) Specifies the color of the shapes (nodes) in the given level. It can be a hexadecimal color string (e.g., `#FF5733`) or a function that returns the color based on the level.
 
 - **text_color:** (optional) Specifies the color of the text labels in this level. It can be a fixed color (e.g., `#FFFFFF`) or a function based on the level.
 
-- **shape_opacity:** (optional) Determines the opacity of the shapes (segments) in this level. This can be a value between `0` and `100`, or a function returning the opacity based on the level.
+- **shape_opacity:** (optional) Determines the opacity of the shapes (nodes) in this level. This can be a value between `0` and `100`, or a function returning the opacity based on the level.
 
 - **text_opacity:** (optional) Determines the opacity of the text in this level. Like `shape_opacity`, it can be a value between `0` and `100`.
 
@@ -455,10 +457,12 @@ The `levels_config` section in the JSON input allows you to define configuration
   - `"perpendicular"` for tangential alignment.
   - `"perpendicular_upright"` for tangential alignment with upright orientation.
 
-- **text_placement:** (optional) Specifies where to place the text within the segment. Common values include:
-  - `"centered"` (default): Places the text in the center of the segment.
-  - `"outside"`: Positions the text outside the segment.
-  - `"inside_top"`: Positions the text near the inner edge of the segment.
+- **text_placement:** (optional) Specifies where to place the text within the node. Common values include:
+  
+  - `callout`: Places the text outside the node as a callout.
+  - `"centered"` (default): Places the text in the center of the node.
+  - `"outside"`: Positions the text outside the node.
+  - `"inside_top"`: Positions the text near the inner edge of the node.
 
 #### Example of a `levels_config` Entry:
 
